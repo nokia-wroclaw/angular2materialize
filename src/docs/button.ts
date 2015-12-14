@@ -9,8 +9,14 @@ import Button from '../index.ts';
       <bd-button
         isLarge="true"
         >
-        Click me!
+        Click button
       </bd-button>
+      <bd-button
+        isLarge="false"
+        >
+        Click button2
+      </bd-button>
+
     </div>
   `
 })

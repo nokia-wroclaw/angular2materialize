@@ -1,8 +1,8 @@
 import {Component, EventEmitter} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
 
+import '../materialize';
 import './_button.scss';
-
 
 @Component({
   selector: Button.toString(),
@@ -13,7 +13,7 @@ import './_button.scss';
       [ngClass]="classes"
       (click)="click.emit($event)"
       >
-
+      <ng-content></ng-content>
     </button>
   `,
   inputs: ['disabled', 'size', 'isFlat'],
