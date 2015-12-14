@@ -23,14 +23,18 @@ export default class Button {
 
   public static LARGE : string = 'large';
 
+  public disabled : boolean = false;
+  public size : string = '';
+  public isFlat : boolean = false;
+
   public static toString() : string {
     return 'bd-button';
   }
 
-  public click : EventEmitter;
+  public click : EventEmitter<any>;
 
   constructor() {
-    this.click = new EventEmitter();
+    this.click = new EventEmitter<any>();
   }
 
   get classes () {

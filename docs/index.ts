@@ -1,4 +1,5 @@
-import {bootstrap} from 'angular2/core';
+import {Component} from 'angular2/core';
+import {bootstrap} from 'angular2/angular2';
 import ButtonDocs from './button';
 
 import './index.html';
