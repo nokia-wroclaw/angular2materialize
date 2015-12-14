@@ -14,7 +14,7 @@ module.exports = {
     historyApiFallback: true
   },
   entry: {
-    'docs': './index.ts'
+    'docs': './docs/index.ts'
   },
   resolve: {
     extensions: ['', '.ts', '.js', '.json']

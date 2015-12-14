@@ -1,5 +1,5 @@
 import {Component, View} from 'angular2/core';
-import Button from './src/Button/button';
+import Button from '../index.ts';
 
 @Component({
   selector: 'bd-button-docs',
