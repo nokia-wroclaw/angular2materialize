@@ -1,5 +1,6 @@
 import {Component} from 'angular2/core';
-import {bootstrap} from 'angular2/angular2';
+import {bootstrap} from 'angular2/bootstrap';
+
 import ButtonDocs from './button';
 
 import './index.html';
@@ -14,4 +15,6 @@ import './index.html';
 class App {
 }
 
-bootstrap(App, document);
+bootstrap(App, [
+
+]);
