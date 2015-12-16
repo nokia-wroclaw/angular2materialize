@@ -14,7 +14,25 @@ module.exports = {
     historyApiFallback: true
   },
   entry: {
-    'docs': './docs/index.ts'
+    'angular2': [
+      'rxjs',
+      'zone.js',
+      'reflect-metadata',
+      'angular2/common',
+      'angular2/core',
+      'angular2/platform/browser',
+      'angular2/router',
+      'angular2/http'
+    ],
+    'app': [
+      './docs/index.ts'
+    ]
+  },
+  output: {
+    path: __dirname,
+    filename: '[name].js',
+    sourceMapFilename: '[name].js.map',
+    chunkFilename: '[id].chunk.js'
   },
   resolve: {
     extensions: ['', '.ts', '.js', '.json']
@@ -56,6 +74,10 @@ module.exports = {
         test: /(\.ttf|\.eot|\.svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loaders: ['url-loader']
       }
+    ],
+    noParse: [
+      /rtts_assert\/src\/rtts_assert/,
+      /reflect-metadata/
     ]
   }
 };

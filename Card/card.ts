@@ -20,7 +20,7 @@ export default class Card {
 
   public size: string;
 
-  static toString():string {
+  static toString(): string {
     return 'bd-card';
   }
 
@@ -29,6 +29,6 @@ export default class Card {
       small: this.size === 'small',
       medium: this.size === 'medium',
       large: this.size === 'large'
-    }
+    };
   }
 }
