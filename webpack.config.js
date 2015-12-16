@@ -15,6 +15,7 @@ module.exports = {
   },
   entry: {
     'angular2': [
+      'angular2/bundles/angular2-polyfills.js',
       'rxjs',
       'angular2/common',
       'angular2/core',
@@ -75,7 +76,8 @@ module.exports = {
     ],
     noParse: [
       /rtts_assert\/src\/rtts_assert/,
-      /reflect-metadata/
+      /reflect-metadata/,
+      /angular2\/bundles\/.+/
     ]
   }
 };
