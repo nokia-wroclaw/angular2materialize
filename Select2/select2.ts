@@ -8,7 +8,7 @@ import './_select2.scss';
   directives: [CORE_DIRECTIVES],
   template: `
     <div>
-      <inputa placeholder="Type to search"/>
+      <input placeholder="Type to search"/>
       <div class="options-container">
         <div>option 1</div>
         <div>option 2</div>

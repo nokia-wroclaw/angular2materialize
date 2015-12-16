@@ -16,8 +16,6 @@ module.exports = {
   entry: {
     'angular2': [
       'rxjs',
-      'zone.js',
-      'reflect-metadata',
       'angular2/common',
       'angular2/core',
       'angular2/platform/browser',
