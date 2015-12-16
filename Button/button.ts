@@ -21,31 +21,44 @@ import './_button.scss';
 })
 export default class Button {
 
-  public static LARGE : string = 'large';
+  public static LARGE: string = 'large';
 
-  public disabled : boolean = false;
-  public size : string = '';
-  public isFlat : boolean = false;
+  public disabled: boolean = false;
 
-  public static toString() : string {
+  public isFlat: boolean = false;
+
+  private __size: string = '';
+
+  private __classes: any = {
+    'btn': true,
+    'waves-effect': true,
+    'waves-light': true,
+    'disabled': this.disabled,
+    'btn-large': this.size === Button.LARGE,
+    'btn-flat': this.isFlat
+  };
+
+  public static toString(): string {
     return 'bd-button';
   }
 
-  public click : EventEmitter<any>;
+  public click: EventEmitter<any>;
 
   constructor() {
     this.click = new EventEmitter<any>();
   }
 
-  get classes () {
-    return {
-      'btn': true,
-      'waves-effect': true,
-      'waves-light': true,
-      'disabled': this.disabled,
-      'btn-large': this.size === Button.LARGE,
-      'btn-flat': this.isFlat
-    };
+  set size(size: string) {
+    this.__size = size;
+    this.classes['btn-large'] = size === Button.LARGE;
+  }
+
+  get size() {
+    return this.__size;
+  }
+
+  get classes() {
+    return this.__classes;
   }
 
 }
