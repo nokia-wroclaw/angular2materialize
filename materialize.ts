@@ -5,5 +5,9 @@ if(!g.jQuery) {
   g.jQuery = $;
   g.$ = $;
 }
+import * as Hammer from 'hammerjs';
+if(!g.Hammer) {
+  g.Hammer = Hammer;
+}
 import 'materialize-css/dist/js/materialize';
 import 'materialize-css/sass/materialize.scss';
