@@ -10,4 +10,4 @@ if(!g.Hammer) {
   g.Hammer = Hammer;
 }
 import 'materialize-css/dist/js/materialize';
-import 'materialize-css/sass/materialize.scss';
+import 'materialize-css/bin/materialize.css';
