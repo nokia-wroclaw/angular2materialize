@@ -2,7 +2,7 @@ import {Component, EventEmitter} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
 
 @Component({
-  selector: ListItem.toString(),
+  selector: BdListItem.toString(),
   directives: [CORE_DIRECTIVES],
   template: `
     <li class="collection-item">
@@ -12,7 +12,7 @@ import {CORE_DIRECTIVES} from 'angular2/common';
   inputs: [],
   outputs: []
 })
-export default class ListItem {
+export default class BdListItem {
 
   public static toString() : string {
     return 'bd-list-item';

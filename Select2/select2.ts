@@ -2,7 +2,7 @@ import {Component, EventEmitter} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
 
 @Component({
-  selector: Select2.toString(),
+  selector: BdSelect2.toString(),
   directives: [CORE_DIRECTIVES],
   template: `
     <div>
@@ -16,7 +16,7 @@ import {CORE_DIRECTIVES} from 'angular2/common';
   `,
   outputs: ['changed']
 })
-export default class Select2 {
+export default class BdSelect2 {
 
   public changed: EventEmitter<any>;
   public inputValue: string;

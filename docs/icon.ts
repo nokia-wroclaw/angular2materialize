@@ -1,13 +1,13 @@
 import {Component, View} from 'angular2/core';
-import {Icon} from '../index';
+import {BdIcon} from '../index';
 
 @Component({
   selector: 'bd-icon-docs',
-  directives: [Icon],
+  directives: [BdIcon],
   template: `
     <bd-icon>add</bd-icon>
   `
 })
-export default class ButtonDocs {
+export default class BdIconDocs {
 
 }

@@ -2,7 +2,7 @@ import {Component, EventEmitter} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
 
 @Component({
-  selector: Icon.toString(),
+  selector: BdIcon.toString(),
   directives: [CORE_DIRECTIVES],
   template: `
     <i class="material-icons">
@@ -11,7 +11,7 @@ import {CORE_DIRECTIVES} from 'angular2/common';
   `,
 
 })
-export default class Icon {
+export default class BdIcon {
 
   public static toString(): string {
     return 'bd-icon';

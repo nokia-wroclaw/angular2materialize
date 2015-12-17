@@ -1,19 +1,19 @@
 import {Component} from 'angular2/core';
 import {bootstrap, ELEMENT_PROBE_PROVIDERS} from 'angular2/platform/browser';
 
-import ButtonDocs from './button';
-import ListDocs from './list';
-import SelectDocs from './select2';
-import CardDocs from './card';
-import Icon from './icon';
-import FloatingButton from './floatingButton';
+import BdButtonDocs from './button';
+import BdListDocs from './list';
+import BdSelectDocs from './select2';
+import BdCardDocs from './card';
+import BdIcon from './icon';
+import BdFloatingButton from './floatingButton';
 
 
 import './index.html';
 
 @Component({
   selector: 'bd-docs',
-  directives: [ButtonDocs, ListDocs, SelectDocs, CardDocs, Icon, FloatingButton],
+  directives: [BdButtonDocs, BdListDocs, BdSelectDocs, BdCardDocs, BdIcon, BdFloatingButton],
   template: `
     <bd-button-docs></bd-button-docs>
     <bd-list-docs></bd-list-docs>

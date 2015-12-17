@@ -2,7 +2,7 @@ import {Component, EventEmitter} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
 
 @Component({
-  selector: FloatingButton.toString(),
+  selector: BdFloatingButton.toString(),
   directives: [CORE_DIRECTIVES],
   template: `
     <a
@@ -14,7 +14,7 @@ import {CORE_DIRECTIVES} from 'angular2/common';
   inputs: ['disabled', 'size'],
   outputs: ['click']
 })
-export default class FloatingButton {
+export default class BdFloatingButton {
 
   public static LARGE: string = 'large';
 
@@ -28,7 +28,7 @@ export default class FloatingButton {
     'waves-effect': true,
     'waves-light': true,
     'disabled': this.disabled,
-    'btn-large': this.size === FloatingButton.LARGE
+    'btn-large': this.size === BdFloatingButton.LARGE
   };
 
   public static toString(): string {
@@ -43,7 +43,7 @@ export default class FloatingButton {
 
   set size(size: string) {
     this.__size = size;
-    this.classes['btn-large'] = size === FloatingButton.LARGE;
+    this.classes['btn-large'] = size === BdFloatingButton.LARGE;
   }
 
   get size() {

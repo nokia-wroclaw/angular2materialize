@@ -2,7 +2,7 @@ import {Component, EventEmitter} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
 
 @Component({
-  selector: List.toString(),
+  selector: BdList.toString(),
   directives: [CORE_DIRECTIVES],
   template: `
   <ul class="collection">
@@ -10,7 +10,7 @@ import {CORE_DIRECTIVES} from 'angular2/common';
     </ul>
   `
 })
-export default class List {
+export default class BdList {
 
   public static toString():string {
     return 'bd-list';

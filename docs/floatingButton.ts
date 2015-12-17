@@ -1,9 +1,9 @@
 import {Component, View} from 'angular2/core';
-import {FloatingButton, Icon} from '../index';
+import {BdFloatingButton, BdIcon} from '../index';
 
 @Component({
   selector: 'bd-floating-button-docs',
-  directives: [FloatingButton, Icon],
+  directives: [BdFloatingButton, BdIcon],
   template: `
     <div>
       <bd-floating-button>
@@ -21,6 +21,6 @@ import {FloatingButton, Icon} from '../index';
     </div>
   `
 })
-export default class ButtonDocs {
+export default class BdFloatingButtonDocs {
 
 }

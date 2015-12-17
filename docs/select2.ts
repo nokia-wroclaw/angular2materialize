@@ -1,15 +1,15 @@
 import {Component} from 'angular2/core';
-import {Select2} from '../index';
+import {BdSelect2} from '../index';
 
 @Component({
   selector: 'bd-select2-docs',
-  directives: [Select2],
+  directives: [BdSelect2],
   template: `
   <div>
     <select2></select2>
   </div>`
 })
-export default class SelectDocs {
+export default class BdSelectDocs {
 
 
 }

@@ -1,9 +1,9 @@
 import {Component, View} from 'angular2/core';
-import {Button} from '../index';
+import {BdButton} from '../index';
 
 @Component({
   selector: 'bd-button-docs',
-  directives: [Button],
+  directives: [BdButton],
   template: `
     <div>
       <bd-button
@@ -22,6 +22,6 @@ import {Button} from '../index';
     </div>
   `
 })
-export default class ButtonDocs {
+export default class BdButtonDocs {
 
 }

@@ -2,7 +2,7 @@ import {Component, EventEmitter} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
 
 @Component({
-  selector: Button.toString(),
+  selector: BdButton.toString(),
   directives: [CORE_DIRECTIVES],
   template: `
     <button
@@ -16,7 +16,7 @@ import {CORE_DIRECTIVES} from 'angular2/common';
   inputs: ['disabled', 'size', 'isFlat'],
   outputs: ['click']
 })
-export default class Button {
+export default class BdButton {
 
   public static LARGE: string = 'large';
 
@@ -31,7 +31,7 @@ export default class Button {
     'waves-effect': true,
     'waves-light': true,
     'disabled': this.disabled,
-    'btn-large': this.size === Button.LARGE,
+    'btn-large': this.size === BdButton.LARGE,
     'btn-flat': this.isFlat
   };
 
@@ -47,7 +47,7 @@ export default class Button {
 
   set size(size: string) {
     this.__size = size;
-    this.classes['btn-large'] = size === Button.LARGE;
+    this.classes['btn-large'] = size === BdButton.LARGE;
   }
 
   get size() {
