@@ -1,7 +1,5 @@
 import {Component} from 'angular2/core';
 
-import './_cardContent.scss';
-
 @Component({
   selector: CardContent.toString(),
   template: `

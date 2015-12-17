@@ -1,21 +1,21 @@
 import {Component, EventEmitter} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
 
+import '../materialize';
+
 @Component({
-  selector: ListItem.toString(),
+  selector: Icon.toString(),
   directives: [CORE_DIRECTIVES],
   template: `
-    <li class="collection-item">
+    <i class="material-icons">
       <ng-content></ng-content>
-    </li>
+    </i>
   `,
-  inputs: [],
-  outputs: []
+
 })
-export default class ListItem {
+export default class Icon {
 
-  public static toString() : string {
-    return 'bd-list-item';
+  public static toString(): string {
+    return 'bd-icon';
   }
-
 }

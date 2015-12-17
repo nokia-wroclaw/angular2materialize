@@ -1,8 +1,6 @@
 import {Component} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
 
-import './_card.scss';
-
 @Component({
   selector: Card.toString(),
   directives: [CORE_DIRECTIVES],

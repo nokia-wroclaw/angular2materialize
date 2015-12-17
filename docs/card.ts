@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import {Card, CardAction, CardContent, CardImage} from '../card/index.ts';
+import {Card, CardAction, CardContent, CardImage} from '../index';
 
 @Component({
   selector: 'bd-card-docs',

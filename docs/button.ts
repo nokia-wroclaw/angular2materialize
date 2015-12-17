@@ -1,5 +1,5 @@
 import {Component, View} from 'angular2/core';
-import Button from '../Button/button.ts';
+import {Button} from '../index';
 
 @Component({
   selector: 'bd-button-docs',
@@ -7,19 +7,21 @@ import Button from '../Button/button.ts';
   template: `
     <div>
       <bd-button
-        isLarge="true"
+        size="large"
         >
         Click button
       </bd-button>
-      <bd-button
-        isLarge="false"
-        >
+      <bd-button>
         Click button2
       </bd-button>
-
+      <bd-button
+        disabled="true"
+        >
+        disabled
+      </bd-button>
     </div>
   `
 })
 export default class ButtonDocs {
-  
+
 }
