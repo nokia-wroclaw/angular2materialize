@@ -8,13 +8,13 @@ import BdCardDocs from './card';
 import BdIcon from './icon';
 import BdChip from './chip';
 import BdFloatingButton from './floatingButton';
-
+import BdDatePickerDocs from './datepicker';
 
 import './index.html';
 
 @Component({
   selector: 'bd-docs',
-  directives: [BdButtonDocs, BdListDocs, BdSelectDocs, BdCardDocs, BdIcon, BdFloatingButton, BdChip],
+  directives: [BdButtonDocs, BdListDocs, BdSelectDocs, BdCardDocs, BdDatePickerDocs, BdIcon, BdFloatingButton, BdChip],
   template: `
     <bd-button-docs></bd-button-docs>
     <bd-list-docs></bd-list-docs>
@@ -23,6 +23,7 @@ import './index.html';
     <bd-icon-docs></bd-icon-docs>
     <bd-chip-docs></bd-chip-docs>
     <bd-floating-button-docs></bd-floating-button-docs>
+    <bd-date-picker-docs></bd-date-picker-docs>
   `
 })
 class App {
