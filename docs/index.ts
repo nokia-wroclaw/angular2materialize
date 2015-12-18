@@ -6,6 +6,7 @@ import BdListDocs from './list';
 import BdSelectDocs from './select2';
 import BdCardDocs from './card';
 import BdIcon from './icon';
+import BdChip from './chip';
 import BdFloatingButton from './floatingButton';
 
 
@@ -13,13 +14,14 @@ import './index.html';
 
 @Component({
   selector: 'bd-docs',
-  directives: [BdButtonDocs, BdListDocs, BdSelectDocs, BdCardDocs, BdIcon, BdFloatingButton],
+  directives: [BdButtonDocs, BdListDocs, BdSelectDocs, BdCardDocs, BdIcon, BdFloatingButton, BdChip],
   template: `
     <bd-button-docs></bd-button-docs>
     <bd-list-docs></bd-list-docs>
     <bd-select2-docs></bd-select2-docs>
     <bd-card-docs></bd-card-docs>
     <bd-icon-docs></bd-icon-docs>
+    <bd-chip-docs></bd-chip-docs>
     <bd-floating-button-docs></bd-floating-button-docs>
   `
 })

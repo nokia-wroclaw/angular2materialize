@@ -1,6 +1,7 @@
 import BdButton from './Button/button';
 import BdFloatingButton from './FloatingButton/floatingButton';
 import BdIcon from './Icon/icon';
+import BdChip from './Chip/chip';
 import {BdCard, BdCardAction, BdCardContent, BdCardImage} from './Card/index';
 import BdSelect2 from './Select2/select2';
 import {BdList, BdListItem} from './List/index'
@@ -12,6 +13,7 @@ export {
   BdButton,
   BdFloatingButton,
   BdIcon,
+  BdChip,
   BdCard,
   BdCardAction,
   BdCardContent,
