@@ -4,10 +4,10 @@ import {CORE_DIRECTIVES} from 'angular2/common';
 import * as $ from 'jquery';
 
 @Component({
-  selector: 'md-dialog',
+  selector: BdDialog.toString(),
   directives: [CORE_DIRECTIVES],
   template: `
-    <div id="mdDialog" [ngClass]="classes" class="modal">
+    <div id="bdDialog" [ngClass]="classes" class="modal">
       <div class="modal-content">
         <ng-content select=".content"></ng-content>
       </div>
@@ -19,7 +19,7 @@ import * as $ from 'jquery';
   inputs: ['isOpen', 'bottom', 'fixedFooter', 'dismissible', 'opacity', 'inDuration', 'outDuration', 'withFooter'],
   outputs: ['isOpenChange']
 })
-export class MdDialog implements OnChanges, OnInit {
+export default class BdDialog implements OnChanges, OnInit {
   public classes: any;
   public bottom: boolean;
   public isOpen: boolean;
@@ -55,9 +55,9 @@ export class MdDialog implements OnChanges, OnInit {
 
     if('isOpen' in changes) {
       if(this.isOpen) {
-        $(this.element.querySelector('#mdDialog')).openModal(this.getOptions());
+        $(this.element.querySelector('#bdDialog')).openModal(this.getOptions());
       } else if(changes['isOpen'].previousValue === true) {
-        $(this.element.querySelector('#mdDialog')).closeModal();
+        $(this.element.querySelector('#bdDialog')).closeModal();
       }
     }
   }
@@ -67,6 +67,10 @@ export class MdDialog implements OnChanges, OnInit {
       'bottom-sheet': this.bottom,
       'modal-fixed-footer': this.fixedFooter
     };
+  }
+
+  public static toString(): string {
+    return 'bd-dialog';
   }
 
   private getOptions() {
