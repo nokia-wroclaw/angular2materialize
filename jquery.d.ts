@@ -1,7 +1,8 @@
 declare module 'jquery' {
-
   interface JQueryElement {
-    pickadate(params: any) : void;
+    pickadate(params: any): void;
+    openModal(params: any): void;
+    closeModal(): void;
   }
 
   interface jQuery {
@@ -10,7 +11,8 @@ declare module 'jquery' {
 
   var $ : jQuery;
 
-  export default $;
+  export = $;
 }
+
 declare module 'hammerjs' {
 }

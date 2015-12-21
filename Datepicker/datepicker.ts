@@ -1,7 +1,7 @@
 import {Component, OnInit, ElementRef, EventEmitter} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
 
-import $ from 'jquery';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'bd-date-picker',
