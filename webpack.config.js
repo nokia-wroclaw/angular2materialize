@@ -34,7 +34,10 @@ module.exports = {
     chunkFilename: '[id].chunk.js'
   },
   resolve: {
-    extensions: ['', '.ts', '.js', '.json']
+    extensions: ['', '.ts', '.js', '.json'],
+    alias: {
+      jQuery: 'jquery'
+    }
   },
   module: {
     loaders: [
