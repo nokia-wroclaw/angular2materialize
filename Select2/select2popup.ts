@@ -20,6 +20,8 @@ import Dictionary = _.Dictionary;
           (keydown)="keydown($event)"
           class="select2__popup__input"
           focusOnShow
+          (blur)="isOpen=false"
+
         />
         <ul class="select2__popup__ul dropdown-content">
           <li *ngFor="#key of visibleOptionsKeys"

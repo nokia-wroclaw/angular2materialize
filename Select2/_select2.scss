@@ -20,7 +20,7 @@ select2popup{
     position: absolute;
     top: 0;
 
-    &__input {
+    &__input[type="text"] {
       width: 100%;
       background-color: #ffffff;
     }
