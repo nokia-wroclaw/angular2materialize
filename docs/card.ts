@@ -1,9 +1,9 @@
 import {Component} from 'angular2/core';
-import {Card, CardAction, CardContent, CardImage} from '../card/index.ts';
+import {BdCard, BdCardAction, BdCardContent, BdCardImage} from '../index';
 
 @Component({
   selector: 'bd-card-docs',
-  directives: [Card, CardAction, CardContent, CardImage],
+  directives: [BdCard, BdCardAction, BdCardContent, BdCardImage],
   template: `
     <div>
       <bd-card [size]="'small'">
@@ -22,5 +22,5 @@ import {Card, CardAction, CardContent, CardImage} from '../card/index.ts';
     </div>
   `
 })
-export default class CardDocs {
+export default class BdCardDocs {
 }

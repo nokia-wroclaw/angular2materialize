@@ -2,18 +2,18 @@ import {Component, EventEmitter} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
 
 @Component({
-  selector: BdList.toString(),
+  selector: BdChip.toString(),
   directives: [CORE_DIRECTIVES],
   template: `
-  <ul class="collection">
+    <div class="chip">
       <ng-content></ng-content>
-    </ul>
-  `
+    </div>
+  `,
+
 })
-export default class BdList {
+export default class BdChip {
 
-  public static toString():string {
-    return 'bd-list';
+  public static toString(): string {
+    return 'bd-chip';
   }
-
 }

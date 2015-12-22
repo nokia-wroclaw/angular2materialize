@@ -1,16 +1,14 @@
 import {Component} from 'angular2/core';
 
-import './_cardImage.scss';
-
 @Component({
-  selector: CardImage.toString(),
+  selector: BdCardImage.toString(),
   template: `
     <div [class.card-image]="true">
       <ng-content></ng-content>
     </div>
   `
 })
-export default class CardImage {
+export default class BdCardImage {
 
   static toString():string {
     return 'bd-card-image';

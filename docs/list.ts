@@ -1,9 +1,9 @@
-import {List, ListItem} from '../List/index'
+import {BdList, BdListItem} from '../List/index'
 import {Component, View} from 'angular2/core';
 
 @Component({
   selector: 'bd-list-docs',
-  directives: [List, ListItem],
+  directives: [BdList, BdListItem],
   template: `
     <div>
       <bd-list>
@@ -13,6 +13,6 @@ import {Component, View} from 'angular2/core';
     </div>
   `
 })
-export default class ListDocs {
+export default class BdListDocs {
 
 }

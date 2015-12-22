@@ -1,7 +1,7 @@
-import List from './list';
-import ListItem from './listItem';
+import BdList from './list';
+import BdListItem from './listItem';
 
 export {
-  List,
-  ListItem
+  BdList,
+  BdListItem
 };

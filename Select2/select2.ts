@@ -8,7 +8,7 @@ import Dictionary = _.Dictionary;
 import './_select2.scss';
 
 @Component({
-  selector: Select2.toString(),
+  selector: BdSelect2.toString(),
   directives: [CORE_DIRECTIVES, Select2Popup],
   template: `
     <div class="select2__mainContainer select-wrapper">
@@ -36,7 +36,7 @@ import './_select2.scss';
   inputs: ['options', 'value'],
   outputs: ['valueChange']
 })
-export default class Select2 {
+export default class BdSelect2 {
   isPopupOpen: boolean = false;
 
   private spanElement;

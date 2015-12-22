@@ -1,9 +1,9 @@
 import {Component} from 'angular2/core';
-import Select2 from '../Select2/select2';
+import {BdSelect2} from '../index';
 
 @Component({
   selector: 'bd-select2-docs',
-  directives: [Select2],
+  directives: [BdSelect2],
   template: `
   <div>
     <p>
@@ -25,7 +25,7 @@ import Select2 from '../Select2/select2';
     <!--</select2>-->
   </div>`
 })
-export default class SelectDocs {
+export default class BdSelectDocs {
 
   public arrayOptions: Array<string> = ['Apple', 'Orange', 'Kiwi', 'Mango', 'Durian'];
 

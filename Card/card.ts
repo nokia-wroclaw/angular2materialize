@@ -1,10 +1,8 @@
 import {Component} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
 
-import './_card.scss';
-
 @Component({
-  selector: Card.toString(),
+  selector: BdCard.toString(),
   directives: [CORE_DIRECTIVES],
   template: `
     <div
@@ -16,7 +14,7 @@ import './_card.scss';
   `,
   inputs: ['size']
 })
-export default class Card {
+export default class BdCard {
 
   public size: string;
 
