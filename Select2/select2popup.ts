@@ -6,7 +6,7 @@ import Dictionary = _.Dictionary;
 
 
 @Component({
-  selector: Select2Popup.toString(),
+  selector: BdSelect2Popup.toString(),
   directives: [CORE_DIRECTIVES, FocusOnShow],
   template: `
     <div
@@ -35,7 +35,7 @@ import Dictionary = _.Dictionary;
   inputs: ['options', 'value', 'isOpen'],
   outputs: ['valueChange', 'isOpenChange']
 })
-export default class Select2Popup {
+export default class BdSelect2Popup {
 
   __isOpen: boolean;
   value: string;

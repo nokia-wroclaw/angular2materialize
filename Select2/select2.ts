@@ -1,7 +1,7 @@
 import {Component, ElementRef, EventEmitter} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
 
-import Select2Popup from './select2popup';
+import BdSelect2Popup from './select2popup';
 import * as _ from 'lodash';
 import Dictionary = _.Dictionary;
 
@@ -9,7 +9,7 @@ import './_select2.scss';
 
 @Component({
   selector: BdSelect2.toString(),
-  directives: [CORE_DIRECTIVES, Select2Popup],
+  directives: [CORE_DIRECTIVES, BdSelect2Popup],
   template: `
     <div class="select2__mainContainer select-wrapper">
       <span class="caret">▼</span>
