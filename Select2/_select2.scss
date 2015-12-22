@@ -1,0 +1,45 @@
+select2 {
+  .select2 {
+
+    &__mainContainer {
+      width: 100%;
+      position: relative;
+    }
+
+    &__mainLabel {
+      cursor: pointer;
+      display: block;
+    }
+  }
+}
+
+
+select2popup{
+  .select2__popup{
+    width: 100%;
+    position: absolute;
+    top: 0;
+
+    &__input {
+      width: 100%;
+      background-color: #ffffff;
+    }
+
+    &__ul {
+      display: block;
+      opacity: 1;
+      width: 100%;
+      li {
+        cursor: pointer;
+        &.selected, &.selected:hover {
+          background-color: #26a69a; //replace that color with materializecss variable
+          a {
+            color: #ffffff; //replace that color with materializecss variable
+          }
+        }
+        &:hover {
+        }
+      }
+    }
+  }
+}
