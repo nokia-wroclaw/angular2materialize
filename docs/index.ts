@@ -1,5 +1,3 @@
-/// <reference path="./../typings/tsd.d.ts" />
-
 import {Component} from 'angular2/core';
 import {bootstrap, ELEMENT_PROBE_PROVIDERS} from 'angular2/platform/browser';
 
@@ -10,14 +8,14 @@ import BdCardDocs from './card';
 import BdIcon from './icon';
 import BdChip from './chip';
 import BdFloatingButton from './floatingButton';
-import BdDatePickerDocs from './datepicker';
+import BdDateTimePickerDocs from './dateTimePicker';
 import BdInputContainerDocs from './inputContainer';
 
 import './index.html';
 
 @Component({
   selector: 'bd-docs',
-  directives: [BdButtonDocs, BdListDocs, BdSelectDocs, BdCardDocs, BdDatePickerDocs, BdIcon, BdFloatingButton, BdChip, BdInputContainerDocs],
+  directives: [BdButtonDocs, BdListDocs, BdSelectDocs, BdCardDocs, BdDateTimePickerDocs, BdIcon, BdFloatingButton, BdChip, BdInputContainerDocs],
   template: `
     <bd-button-docs></bd-button-docs>
     <bd-list-docs></bd-list-docs>
@@ -26,7 +24,7 @@ import './index.html';
     <bd-icon-docs></bd-icon-docs>
     <bd-chip-docs></bd-chip-docs>
     <bd-floating-button-docs></bd-floating-button-docs>
-    <bd-date-picker-docs></bd-date-picker-docs>
+    <bd-date-time-picker-docs></bd-date-time-picker-docs>
     <bd-input-container-docs></bd-input-container-docs>
   `
 })

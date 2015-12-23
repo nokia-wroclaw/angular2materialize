@@ -7,6 +7,7 @@ import BdSelect2 from './Select2/select2';
 import {BdList, BdListItem} from './List/index'
 import BdDatePicker from './Datepicker/datepicker';
 import BdInputContainer from './InputContainer/inputContainer';
+import BdTimePicker from './Timepicker/timepicker';
 import BdDialog from './Dialog/dialog';
 
 import './materialize';
@@ -25,6 +26,7 @@ export {
   BdList,
   BdListItem,
   BdDatePicker,
+  BdTimePicker,
   BdInputContainer,
   BdDialog
 };

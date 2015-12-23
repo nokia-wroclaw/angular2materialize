@@ -19,7 +19,7 @@ export default class BdDatePicker implements OnInit {
 
   public date: Date = null;
 
-  public dateChange: EventEmitter<any>;
+  public dateChange: EventEmitter<Date>;
 
   public params: Object = null;
 
@@ -29,7 +29,7 @@ export default class BdDatePicker implements OnInit {
   };
 
   constructor(public elementRef:ElementRef) {
-    this.dateChange = new EventEmitter<any>();
+    this.dateChange = new EventEmitter<Date>();
   }
 
   ngOnInit() {
@@ -44,13 +44,16 @@ export default class BdDatePicker implements OnInit {
   };
 
   private onDateChange(dateChangeResult) {
-    if(!dateChangeResult.select) {
-      this.dateChange.next(null);
-      return;
+    let selectedDate: Date = dateChangeResult.select ? this.extractDate(dateChangeResult.select) : null;
+    this.dateChange.next(selectedDate);
+  }
+
+  private extractDate(selectedDate: string) {
+    let newDate = new Date(selectedDate);
+    if(this.date) {
+      newDate.setHours(this.date.getHours(), this.date.getMinutes(), this.date.getSeconds(), this.date.getMilliseconds());
     }
-    let newDate = new Date(dateChangeResult.select);
-    newDate.setHours(0, 0, 0, 0);
-    this.dateChange.next(newDate);
+    return newDate;
   }
 
   public static toString() : string {
