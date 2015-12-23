@@ -25,8 +25,7 @@ import './_select2.scss';
         >
       <select2popup
         [options]="options"
-        [isOpen]="isPopupOpen"
-        (isOpenChange)="isPopupOpen=$event"
+        [(isOpen)]="isPopupOpen"
         [value]="value"
         (valueChange)="acceptNewValue($event)"
         >

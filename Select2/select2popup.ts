@@ -123,7 +123,7 @@ export default class BdSelect2Popup {
   }
 
   private getVisibleOptionsKeys(filter: string): string[] {
-    const filterExpr = new RegExp(filter);
+    const filterExpr = new RegExp(filter,'i');
     return _.chain<Dictionary<string>>(this.options)
       .pick<Dictionary<string>>((label: string) => label.search(filterExpr) !== -1)
       .keys().value();
