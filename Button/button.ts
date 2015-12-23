@@ -13,9 +13,10 @@ import {CORE_DIRECTIVES} from 'angular2/common';
       <ng-content></ng-content>
     </button>
   `,
-  inputs: ['disabled', 'size', 'isFlat'],
+  inputs: ['disabled', 'size', 'isFlat', 'color'],
   outputs: ['click']
 })
+
 export default class BdButton {
 
   public static LARGE: string = 'large';
@@ -56,6 +57,10 @@ export default class BdButton {
 
   get classes() {
     return this.__classes;
+  }
+
+  set color(color: string) {
+    this.__classes[color] = true;
   }
 
 }

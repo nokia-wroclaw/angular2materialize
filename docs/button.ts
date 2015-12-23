@@ -8,6 +8,7 @@ import {BdButton} from '../index';
     <div>
       <bd-button
         size="large"
+        color="blue"
         >
         Click button
       </bd-button>
