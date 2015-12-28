@@ -1,5 +1,17 @@
 import {Component} from 'angular2/core';
 import {BdSelect2} from '../index';
+import * as _ from 'lodash';
+
+const loremIpsumOptions = _.unique(`Sed posuere consectetur est at lobortis. Donec ullamcorper nulla non metus auctor
+  fringilla. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Sed posuere consectetur est at lobortis.
+  Nullam quis risus eget urna mollis ornare vel eu leo.  Duis mollis, est non commodo luctus, nisi erat porttitor
+  ligula, eget lacinia odio sem nec elit. Donec id elit non mi porta gravida at eget metus. Curabitur blandit tempus
+  porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras mattis consectetur purus sit
+  amet fermentum. Donec sed odio dui. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed
+  odio dui. Cras mattis consectetur purus sit amet fermentum. Donec sed odio dui. Duis mollis, est non commodo luctus,
+  nisi erat porttitor ligula, eget lacinia odio sem nec elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  Sed posuere consectetur est at lobortis. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.`
+  .replace(/\.|,/g, '').toLowerCase().split(' '));
 
 @Component({
   selector: 'bd-select2-docs',
@@ -27,7 +39,7 @@ import {BdSelect2} from '../index';
 })
 export default class BdSelectDocs {
 
-  public arrayOptions: Array<string> = ['Apple', 'Orange', 'Kiwi', 'Mango', 'Durian'];
+  public arrayOptions: Array<string> = loremIpsumOptions;
 
   public dictionaryOptions: DictionaryOptions = {
     'apple': 'Apple - a doctor away sender',
@@ -46,3 +58,7 @@ export default class BdSelectDocs {
 interface DictionaryOptions {
   [value: number]: string;
 }
+
+
+
+

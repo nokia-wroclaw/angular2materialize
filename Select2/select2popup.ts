@@ -1,4 +1,4 @@
-import {Component, EventEmitter} from 'angular2/core';
+import {Component, EventEmitter, ElementRef, Renderer} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
 import FocusOnShow from './focusOnShow';
 import * as _ from 'lodash';
@@ -23,6 +23,7 @@ import Dictionary = _.Dictionary;
           (blur)="isOpen=false"
 
         />
+        <executeOnShow (callback)="test123()"></executeOnShow>
         <ul class="select2__popup__ul dropdown-content">
           <li *ngFor="#key of visibleOptionsKeys"
            [class.selected]="key===selectedKey"
@@ -44,7 +45,13 @@ export default class BdSelect2Popup {
   valueChange: EventEmitter<string> = new EventEmitter<string>();
   isOpenChange: EventEmitter<boolean> = new EventEmitter<boolean>();
   visibleOptionsKeys: string[];
-  selectedKey: string;
+  size: number;
+
+  private nativeElement: HTMLElement;
+
+  constructor(elRef: ElementRef, renderer: Renderer) {
+    this.nativeElement = elRef.nativeElement;
+  }
 
   static toString(): string {
     return 'select2popup';
@@ -61,18 +68,44 @@ export default class BdSelect2Popup {
     }
     if (event.which === 38) { //arrow up
       this.selectedKey = this.changeSelectedKeyPositionBy(-1);
+      this.scrollToSelectedOption();
       event.preventDefault();
     }
     if (event.which === 40) { //arrow down
       this.selectedKey = this.changeSelectedKeyPositionBy(1);
+      this.scrollToSelectedOption(false);
       event.preventDefault();
     }
   }
+
+  private scrollToSelectedOption(toTop = true) {
+    const indexOfSelectedOption = this.visibleOptionsKeys.indexOf(this.selectedKey);
+    const selectedOption = this.nativeElement.querySelectorAll(`ul li`)[indexOfSelectedOption];
+    const selectedOptionRect = selectedOption.getBoundingClientRect();
+    const ul = this.nativeElement.querySelector('ul');
+    const ulRect = ul.getBoundingClientRect();
+
+    const top = selectedOptionRect.top - ulRect.top;
+    const bottom = selectedOptionRect.bottom - ulRect.top;
+    if (top < 0 || bottom > ulRect.height) {
+      if (toTop) {
+        ul.scrollTop = ul.scrollTop + top;
+      } else {
+        ul.scrollTop = ul.scrollTop + (bottom - ulRect.height);
+      }
+    }
+  };
 
   selectOption(key: string) {
     this.value = key;
     this.valueChange.emit(this.value);
     this.isOpen = false;
+  }
+
+  test123() {
+    console.log("TEST EXECUTED!");
+    const ul = this.nativeElement.querySelector('ul');
+    console.log(ul);
   }
 
 
@@ -90,6 +123,11 @@ export default class BdSelect2Popup {
     }
     this.__isOpen = value;
     this.isOpenChange.emit(value);
+    if (this.isOpen) {
+      setTimeout(() => {
+        this.scrollToSelectedOption();
+      }, 0);
+    }
   }
 
   /**
@@ -109,6 +147,20 @@ export default class BdSelect2Popup {
   }
 
   /**
+   * selectedKey
+   */
+
+  private __selectedKey: string;
+
+  set selectedKey(value: string) {
+    this.__selectedKey = value;
+  }
+
+  get selectedKey(): string {
+    return this.__selectedKey;
+  }
+
+  /**
    * options
    */
 
@@ -123,7 +175,7 @@ export default class BdSelect2Popup {
   }
 
   private getVisibleOptionsKeys(filter: string): string[] {
-    const filterExpr = new RegExp(filter,'i');
+    const filterExpr = new RegExp(filter, 'i');
     return _.chain<Dictionary<string>>(this.options)
       .pick<Dictionary<string>>((label: string) => label.search(filterExpr) !== -1)
       .keys().value();
