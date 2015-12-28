@@ -6,18 +6,20 @@ import * as $ from 'jquery';
 @Component({
   selector: 'bd-date-picker',
   directives: [CORE_DIRECTIVES],
-  inputs: ['date', 'params'],
+  inputs: ['date', 'params', 'label'],
   outputs: ['dateChange'],
   template: `
     <div class="input-field">
       <input class="date-input" [value]='date | date' type='date' />
-      <label *ngIf="!date" for="date-input" >date</label>
+      <label *ngIf="!date" for="date-input" >{{label}}</label>
     </div>`
 })
 
 export default class BdDatePicker implements OnInit {
 
   public date: Date = null;
+
+  public label: String = 'date';
 
   public dateChange: EventEmitter<Date>;
 
