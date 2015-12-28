@@ -1,4 +1,4 @@
-import {BdList, BdListItem} from '../List/index'
+import {BdList, BdListItem} from 'angular2-material';
 import {Component, View} from 'angular2/core';
 
 @Component({

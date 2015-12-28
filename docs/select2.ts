@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import {BdSelect2} from '../index';
+import {BdSelect2} from 'angular2-material';
 
 @Component({
   selector: 'bd-select2-docs',

@@ -1,5 +1,5 @@
 import {Component, View} from 'angular2/core';
-import {BdChip, BdIcon} from '../index';
+import {BdChip, BdIcon} from 'angular2-material';
 
 @Component({
   selector: 'bd-chip-docs',
