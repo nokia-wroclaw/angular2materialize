@@ -42,8 +42,14 @@ export default class BdDatePicker implements OnInit {
   private registerAsDatePicker = (element: Element) => {
     let mergedParams = {};
     Object.assign(mergedParams, BdDatePicker.DEFAULT_PARAMS, this.params, { onSet: (result) => this.onDateChange(result) });
-    $(element).pickadate(mergedParams);
+    this.initializeDatePickerWithStartingValue(element, mergedParams, this.date);
   };
+
+  private initializeDatePickerWithStartingValue(element: Element, mergedParams: Object, date: Date) {
+    let dateInput = $(element).pickadate(mergedParams);
+    let picker = dateInput.pickadate('picker');
+    picker.set('select', date);
+  }
 
   private onDateChange(dateChangeResult) {
     let selectedDate: Date = dateChangeResult.select ? this.extractDate(dateChangeResult.select) : null;
