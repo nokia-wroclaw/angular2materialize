@@ -9,18 +9,20 @@ const timePicker = new TimePicker();
 @Component({
   selector: 'bd-time-picker',
   directives: [CORE_DIRECTIVES],
-  inputs: ['date', 'params'],
+  inputs: ['date', 'params', 'label'],
   outputs: ['dateChange'],
   template: `
     <div class="input-field">
       <input [value]='date | date: "jjmm"' type='text' />
-      <label *ngIf="!date">time</label>
+      <label *ngIf="!date">{{label}}</label>
     </div>`
 })
 
 export default class BdTimePicker implements OnInit {
 
   public date: Date = null;
+
+  public label: String = 'time';
 
   public dateChange: EventEmitter<Date>;
 

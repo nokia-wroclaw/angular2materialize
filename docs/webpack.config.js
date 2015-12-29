@@ -24,7 +24,7 @@ module.exports = {
       'angular2/http'
     ],
     'app': [
-      './docs/index.ts'
+      './index.ts'
     ]
   },
   output: {
@@ -36,7 +36,8 @@ module.exports = {
   resolve: {
     extensions: ['', '.ts', '.js', '.json'],
     alias: {
-      jQuery: 'jquery'
+      jQuery: 'jquery',
+      'angular2-material': 'local-angular2-material'
     }
   },
   module: {
@@ -64,7 +65,7 @@ module.exports = {
           /\.min\.js$/,
           /\.spec\.ts$/,
           /\.e2e\.ts$/,
-          /node_modules/
+          /node_modules\/((?!local-angular2-material).*)/
         ]
       },
       {

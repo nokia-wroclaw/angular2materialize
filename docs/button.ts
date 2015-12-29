@@ -1,5 +1,5 @@
 import {Component, View} from 'angular2/core';
-import {BdButton} from '../index';
+import {BdButton} from 'angular2-material';
 
 @Component({
   selector: 'bd-button-docs',
