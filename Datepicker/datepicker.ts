@@ -4,7 +4,7 @@ import {CORE_DIRECTIVES} from 'angular2/common';
 import * as $ from 'jquery';
 
 @Component({
-  selector: 'bd-date-picker',
+  selector: BdDatePicker.toString(),
   directives: [CORE_DIRECTIVES],
   inputs: ['date', 'params', 'label'],
   outputs: ['dateChange'],
@@ -17,15 +17,15 @@ import * as $ from 'jquery';
 
 export default class BdDatePicker implements OnInit {
 
-  public date: Date = null;
+  public date:Date = null;
 
-  public label: String = 'date';
+  public label:String = 'date';
 
-  public dateChange: EventEmitter<Date>;
+  public dateChange:EventEmitter<Date>;
 
-  public params: Object = null;
+  public params:Object = null;
 
-  public static DEFAULT_PARAMS: Object = {
+  public static DEFAULT_PARAMS:Object = {
     selectMonths: true,
     container: document.body
   };
@@ -35,36 +35,40 @@ export default class BdDatePicker implements OnInit {
   }
 
   ngOnInit() {
-    let element: Element = this.elementRef.nativeElement;
+    let element:Element = this.elementRef.nativeElement;
     this.registerAsDatePicker(element.querySelector('input'));
   }
 
-  private registerAsDatePicker = (element: Element) => {
+  private registerAsDatePicker = (element:Element) => {
     let mergedParams = {};
-    Object.assign(mergedParams, BdDatePicker.DEFAULT_PARAMS, this.params, { onSet: (result) => this.onDateChange(result) });
+    Object.assign(mergedParams, BdDatePicker.DEFAULT_PARAMS, this.params,
+      {
+        onSet: (result) => this.onDateChange(result),
+        onClose: () => element.blur()
+      });
     this.initializeDatePickerWithStartingValue(element, mergedParams, this.date);
   };
 
-  private initializeDatePickerWithStartingValue(element: Element, mergedParams: Object, date: Date) {
+  private initializeDatePickerWithStartingValue(element:Element, mergedParams:Object, date:Date) {
     let dateInput = $(element).pickadate(mergedParams);
     let picker = dateInput.pickadate('picker');
     picker.set('select', date);
   }
 
   private onDateChange(dateChangeResult) {
-    let selectedDate: Date = dateChangeResult.select ? this.extractDate(dateChangeResult.select) : null;
+    let selectedDate:Date = dateChangeResult.select ? this.extractDate(dateChangeResult.select) : null;
     this.dateChange.next(selectedDate);
   }
 
-  private extractDate(selectedDate: string) {
+  private extractDate(selectedDate:string) {
     let newDate = new Date(selectedDate);
-    if(this.date) {
+    if (this.date) {
       newDate.setHours(this.date.getHours(), this.date.getMinutes(), this.date.getSeconds(), this.date.getMilliseconds());
     }
     return newDate;
   }
 
-  public static toString() : string {
+  public static toString():string {
     return 'bd-date-picker';
   }
 }
