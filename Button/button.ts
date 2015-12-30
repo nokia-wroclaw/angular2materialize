@@ -8,13 +8,11 @@ import {CORE_DIRECTIVES} from 'angular2/common';
     <button
       [disabled]="disabled"
       [ngClass]="classes"
-      (click)="click.emit($event)"
       >
       <ng-content></ng-content>
     </button>
   `,
-  inputs: ['disabled', 'size', 'isFlat', 'color'],
-  outputs: ['click']
+  inputs: ['disabled', 'size', 'isFlat', 'color']
 })
 
 export default class BdButton {
@@ -40,11 +38,7 @@ export default class BdButton {
     return 'bd-button';
   }
 
-  public click: EventEmitter<any>;
-
-  constructor() {
-    this.click = new EventEmitter<any>();
-  }
+  constructor() {}
 
   set size(size: string) {
     this.__size = size;
