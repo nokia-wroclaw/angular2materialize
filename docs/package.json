@@ -5,7 +5,7 @@
   "scripts": {
     "start": "webpack-dev-server --port 8081",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "preinstall": "npm link ../",
+    "preinstall": "",
     "postinstall": "tsd install"
   },
   "private": true,
@@ -31,6 +31,7 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0",
-    "zone.js": "~0.5.10"
+    "zone.js": "~0.5.10",
+    "angular2-material": "../"
   }
 }
