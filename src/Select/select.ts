@@ -148,7 +148,7 @@ export class BdSelect implements AfterContentInit {
 
   ngAfterContentInit() {
     this.initOptions();
-    this.optionsContent.changes.subscribe(() => this.initOptions);
+    this.optionsContent.changes.subscribe(() => this.initOptions());
   }
 
   set searchPhrase(value: string) {
