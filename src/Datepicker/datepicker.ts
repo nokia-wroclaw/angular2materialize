@@ -39,7 +39,7 @@ export default class BdDatePicker implements OnInit {
     this.registerAsDatePicker(element.querySelector('input'));
   }
 
-  private registerAsDatePicker = (element:Element) => {
+  private registerAsDatePicker(element) {
     let mergedParams = {};
     Object.assign(mergedParams, BdDatePicker.DEFAULT_PARAMS, this.params,
       {
@@ -47,10 +47,10 @@ export default class BdDatePicker implements OnInit {
         onClose: () => element.blur()
       });
     this.initializeDatePickerWithStartingValue(element, mergedParams, this.date);
-  };
+  }
 
   private initializeDatePickerWithStartingValue(element:Element, mergedParams:Object, date:Date) {
-    let dateInput = $(element).pickadate(mergedParams);
+    let dateInput:any = $(element).pickadate(mergedParams);
     let picker = dateInput.pickadate('picker');
     picker.set('select', date);
   }

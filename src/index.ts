@@ -3,7 +3,8 @@ import BdFloatingButton from './FloatingButton/floatingButton';
 import BdIcon from './Icon/icon';
 import BdChip from './Chip/chip';
 import {BdCard, BdCardAction, BdCardContent, BdCardImage} from './Card/index';
-import BdSelect2 from './Select2/select2';
+import {BdSelect} from './Select/select';
+import {BdOption} from './Select/option';
 import {BdList, BdListItem} from './List/index'
 import BdDatePicker from './Datepicker/datepicker';
 import BdInputContainer from './InputContainer/inputContainer';
@@ -22,11 +23,12 @@ export {
   BdCardAction,
   BdCardContent,
   BdCardImage,
-  BdSelect2,
+  BdSelect,
+  BdOption,
   BdList,
   BdListItem,
   BdDatePicker,
   BdTimePicker,
   BdInputContainer,
-  BdDialog
+  BdDialog,
 };

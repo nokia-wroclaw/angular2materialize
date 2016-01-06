@@ -5,7 +5,7 @@ import {bootstrap, ELEMENT_PROBE_PROVIDERS} from 'angular2/platform/browser';
 
 import BdButtonDocs from './button';
 import BdListDocs from './list';
-import BdSelectDocs from './select2';
+import BdSelectDocs from './select';
 import BdCardDocs from './card';
 import BdIcon from './icon';
 import BdChip from './chip';
@@ -25,7 +25,7 @@ import './styles.scss';
     <h3 class="header">List</h3>
     <bd-list-docs></bd-list-docs>
     <h3 class="header">Select 1½</h3>
-    <bd-select2-docs></bd-select2-docs>
+    <bd-select-docs></bd-select-docs>
     <h3 class="header">Card</h3>
     <bd-card-docs></bd-card-docs>
     <h3 class="header">Icon</h3>

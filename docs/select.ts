@@ -1,5 +1,6 @@
 import {Component} from 'angular2/core';
-import {BdSelect2} from 'angular2-material';
+import {CORE_DIRECTIVES} from 'angular2/common';
+import {BdSelect, BdOption, BdInputContainer} from 'angular2-material';
 import * as _ from 'lodash';
 
 const loremIpsumOptions = _.unique(`Sed posuere consectetur est at lobortis. Donec ullamcorper nulla non metus auctor
@@ -14,51 +15,44 @@ const loremIpsumOptions = _.unique(`Sed posuere consectetur est at lobortis. Don
   .replace(/\.|,/g, '').toLowerCase().split(' '));
 
 @Component({
-  selector: 'bd-select2-docs',
-  directives: [BdSelect2],
+  selector: 'bd-select-docs',
+  directives: [BdSelect, BdOption, CORE_DIRECTIVES, BdInputContainer],
   template: `
   <div>
     <p>
       <span>Select with options in form of a simple array <pre>[value: number]:string</pre></span>
     </p>
-    <select2 [options]="arrayOptions" [(value)]="firstSelectValue">
-    </select2>
+    <bd-input-container>
+      <bd-select (valueChange)="firstSelectValue=$event">
+        <bd-option *ngFor="#option of arrayOptions; #i=index" [value]="i" [searchValue]="option">
+          <p>{{option}}</p>
+        </bd-option>
+      </bd-select>
+    </bd-input-container>
     <p><span>Selected value is: </span><strong>{{firstSelectValue}}</strong></p>
+
     <hr>
     <p>
-    <span>Select with options in form of a simple object <pre>[value: string]:string</pre></span>
+    <span>Select with options in form of a array of simple objects <pre>[value: string]:string</pre></span>
     </p>
-    <select2 [options]="dictionaryOptions" [(value)]="secondSelectValue">
-    </select2>
-    <p><span>Selected value is: </span><strong>{{secondSelectValue}}</strong></p>
-
-    <!--<p>Select with options in form of a dictionary string=>string</p>-->
-    <!--<select2 [options]="dictionaryOptions">-->
-    <!--</select2>-->
+    <bd-select (valueChange)="secondSelectValue=$event">
+      <bd-option *ngFor="#option of arrayOfObjects" [value]="option" [searchValue]="option.name">
+      </bd-option>
+    </bd-select>
+    <p><span>Selected value is: </span><strong>{{secondSelectValue | json}}</strong></p>
   </div>`
 })
 export default class BdSelectDocs {
-
   public arrayOptions: Array<string> = loremIpsumOptions;
 
-  public dictionaryOptions: DictionaryOptions = {
-    'apple': 'Apple - a doctor away sender',
-    'orange': 'A bit old Orange',
-    'kiwi': 'Juicy Kiwi',
-    'mango': 'Yellow mango',
-    'durian': 'Durian - only for hardcore people'
-  };
+  public arrayOfObjects = [
+    {name: 'apple', dest: 'Apple - a doctor away sender'},
+    {name: 'orange', dest: 'A bit old Orange'},
+    {name: 'kiwi', dest: 'Juicy Kiwi'},
+    {name: 'mango', dest: 'Yellow mango'},
+    {name: 'durian', dest: 'Durian - only for hardcore people'}
+  ];
 
-  public firstSelectValue = 2;
-
-  public secondSelectValue = 'orange';
-
+  public firstSelectValue = 1;
+  public secondSelectValue = this.arrayOfObjects[2];
 }
-
-interface DictionaryOptions {
-  [value: number]: string;
-}
-
-
-
-

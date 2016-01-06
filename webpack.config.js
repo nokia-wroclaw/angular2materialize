@@ -24,7 +24,7 @@ module.exports = {
       'angular2/http'
     ],
     'app': [
-      './index.ts'
+      './docs/index.ts'
     ]
   },
   output: {
@@ -58,6 +58,7 @@ module.exports = {
         query: {
           'ignoreDiagnostics': [
             // 2300, // 2300 -> Duplicate identifier
+            // 2375, // 2375 -> Duplicate number index signature
             // 2309 // 2309 -> An export assignment cannot be used in a module with other exported elements.
           ]
         },
@@ -65,7 +66,6 @@ module.exports = {
           /\.min\.js$/,
           /\.spec\.ts$/,
           /\.e2e\.ts$/,
-          /node_modules\/((?!local-angular2-material).*)/
         ]
       },
       {
