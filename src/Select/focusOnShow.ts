@@ -5,6 +5,7 @@ import {Directive, ElementRef, Renderer} from 'angular2/core';
 })
 export default class FocusOnShow {
   constructor(el: ElementRef, renderer: Renderer) {
-    renderer.invokeElementMethod(el, 'focus', []);
+    // ToDo check what changed in beta1
+    // renderer.invokeElementMethod(el, 'focus', []);
   }
 }

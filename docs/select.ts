@@ -1,6 +1,6 @@
 import {Component} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
-import {BdSelect, BdOption, BdInputContainer} from 'angular2-material';
+import {BdSelect, BdOptionTemplate} from 'angular2-material';
 import * as _ from 'lodash';
 
 const loremIpsumOptions = _.unique(`Sed posuere consectetur est at lobortis. Donec ullamcorper nulla non metus auctor
@@ -16,43 +16,38 @@ const loremIpsumOptions = _.unique(`Sed posuere consectetur est at lobortis. Don
 
 @Component({
   selector: 'bd-select-docs',
-  directives: [BdSelect, BdOption, CORE_DIRECTIVES, BdInputContainer],
+  directives: [CORE_DIRECTIVES, BdSelect, BdOptionTemplate],
   template: `
   <div>
-    <p>
-      <span>Select with options in form of a simple array <pre>[value: number]:string</pre></span>
-    </p>
-    <bd-input-container>
-      <bd-select (valueChange)="firstSelectValue=$event">
-        <bd-option *ngFor="#option of arrayOptions; #i=index" [value]="i" [searchValue]="option">
-          <p>{{option}}</p>
-        </bd-option>
-      </bd-select>
-    </bd-input-container>
-    <p><span>Selected value is: </span><strong>{{firstSelectValue}}</strong></p>
-
-    <hr>
-    <p>
-    <span>Select with options in form of a array of simple objects <pre>[value: string]:string</pre></span>
-    </p>
-    <bd-select (valueChange)="secondSelectValue=$event">
-      <bd-option *ngFor="#option of arrayOfObjects" [value]="option" [searchValue]="option.name">
-      </bd-option>
+    <bd-select 
+      [options]="arrayOfObjects" 
+      (valueChange)="secondSelectValue=$event"
+      itemText="item.name">
+      <template #item="$item" bdOptionTemplate>
+        <p>
+          <b>{{item.name}}</b>
+          <span>{{item.dest}}</span>
+        </p>
+      </template>
     </bd-select>
     <p><span>Selected value is: </span><strong>{{secondSelectValue | json}}</strong></p>
-  </div>`
+  </div>
+  `
 })
 export default class BdSelectDocs {
-  public arrayOptions: Array<string> = loremIpsumOptions;
-
-  public arrayOfObjects = [
-    {name: 'apple', dest: 'Apple - a doctor away sender'},
-    {name: 'orange', dest: 'A bit old Orange'},
-    {name: 'kiwi', dest: 'Juicy Kiwi'},
-    {name: 'mango', dest: 'Yellow mango'},
-    {name: 'durian', dest: 'Durian - only for hardcore people'}
-  ];
-
-  public firstSelectValue = 1;
-  public secondSelectValue = this.arrayOfObjects[2];
+  public arrayOfObjects: Array<any>;
+  
+  constructor() {
+    this.arrayOfObjects = [];
+    setTimeout(() =>  { 
+      this.arrayOfObjects = _.reduce(_.range(10000), (memo) => memo.concat([
+        {name: 'apple', dest: 'Apple - a doctor away sender'},
+        {name: 'orange', dest: 'A bit old Orange'},
+        {name: 'kiwi', dest: 'Juicy Kiwi'},
+        {name: 'mango', dest: 'Yellow mango'},
+        {name: 'durian', dest: 'Durian - only for hardcore people'}
+      ]), []);
+      console.log(this.arrayOfObjects.length);
+    }, 1000);
+  }
 }

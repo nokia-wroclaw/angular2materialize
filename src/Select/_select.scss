@@ -16,6 +16,8 @@ bd-select {
 .select__popup {
   width: 100%;
   position: absolute;
+  background-color: white;
+  z-index:10;
   top: 0;
 
   &__input[type="text"] {
@@ -27,7 +29,11 @@ bd-select {
     display: block;
     opacity: 1;
     width: 100%;
-    li {
+    height: 300px;
+
+    p {
+      margin: 0;
+      height: 50px;
       cursor: pointer;
       &.selected, &.selected:hover {
         background-color: #26a69a; //replace that color with materializecss variable
