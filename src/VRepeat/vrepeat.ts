@@ -16,7 +16,7 @@ const CONTAINER_CAPACITY = CONTAINER_HEIGHT / ITEM_HEIGHT;
 
 @Component({
   selector: 'bd-v-repeat',
-  inputs: ['options'],
+  inputs: ['options', 'outerTemplate:template'],
   outputs: ['itemClicked'],
   host: {'(scroll)': 'onScroll($event)'},
   directives: [CORE_DIRECTIVES, BdItem],
@@ -26,10 +26,11 @@ const CONTAINER_CAPACITY = CONTAINER_HEIGHT / ITEM_HEIGHT;
       [style.height.px]="scrollerHeight - marginTop"
       [style.margin-top.px]="marginTop">
       <li
-        *ngFor="#item of visibleOptions" 
+        *ngFor="#item of visibleOptions; #even=even" 
         [item]="item" 
         [template]="template"
-        (click)="onClick(item)">
+        (click)="onClick(item)"
+        [ngClass]="{even: even}">
       </li>
       <ng-content></ng-content>
     </ul>
@@ -46,7 +47,8 @@ export class BdVRepeat implements AfterContentInit, OnChanges {
   private options: Array<any>;
   public visibleOptions: Array<any>;
 
-  private template: TemplateRef;
+  public template: TemplateRef;
+  public outerTemplate:TemplateRef;
 
   constructor() {
     this.itemClicked = new EventEmitter();
@@ -69,8 +71,15 @@ export class BdVRepeat implements AfterContentInit, OnChanges {
   }
 
   ngAfterContentInit() {
-    this.template = this.itemTemplate.getTemplate();
-    this.initItems();  
+    if(this.outerTemplate) {
+      this.template = this.outerTemplate; 
+      this.initItems();   
+    } else if(this.itemTemplate) {
+      this.template = this.itemTemplate.getTemplate();
+      this.initItems();   
+    } else {
+      throw Error('BdItemTemplate directive inside BdVRepeat or template properties is required');
+    }
   }
 
   ngOnChanges(changes: {[key: string]: SimpleChange}) {
@@ -84,7 +93,7 @@ export class BdVRepeat implements AfterContentInit, OnChanges {
   }
 
   private initItems() {
-    if(!this.options || !this.itemTemplate) {
+    if(!this.options) {
       return;
     }
     this.scrollerHeight = this.options.length * ITEM_HEIGHT;

@@ -1,11 +1,15 @@
-import {Directive, ElementRef, Renderer} from 'angular2/core';
+import {Directive, ElementRef, Renderer, AfterViewInit} from 'angular2/core';
 
 @Directive({
   selector: '[focusOnShow]'
 })
-export default class FocusOnShow {
-  constructor(el: ElementRef, renderer: Renderer) {
-    // ToDo check what changed in beta1
-    // renderer.invokeElementMethod(el, 'focus', []);
+export default class FocusOnShow implements AfterViewInit {
+
+  constructor(private element: ElementRef, private renderer: Renderer) {}
+
+  ngAfterViewInit() {
+    // this.renderer.invokeElementMethod(this.element.nativeElement, 'focus', []);
+    this.element.nativeElement.focus();
   }
+
 }

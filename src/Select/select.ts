@@ -4,45 +4,48 @@ import {ContentChild, AfterContentInit} from 'angular2/core';
 import {TemplateRef, ElementRef} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
 
+import * as _ from 'lodash';
+
 import FocusOnShow from './focusOnShow';
 import {BdVRepeat, BdItemTemplate} from '../VRepeat/vrepeat';
 
 import {BdOptionTemplate} from './option-template';
 export {BdOptionTemplate};
 
-import * as _ from 'lodash';
-
 import './_select.scss';
 
 @Component({
   selector: 'bd-select',
-  inputs: ['value', 'options', 'itemText'],
+  inputs: ['value', 'options', 'itemText', 'placeholder'],
   outputs: ['valueChange'],
   directives: [CORE_DIRECTIVES, BdVRepeat, BdItemTemplate, FocusOnShow],
   template: `
     <div class="select__mainContainer select-wrapper">
       <span class="caret">▼</span>
       <input
-        (click)="isPopupOpen=true"
-        (mousedown)="$event.preventDefault()"
-        class="select__mainLabel"
         type="text"
         readonly="true"
-        [value]="selectedOption?.searchValue">
+        class="select__mainLabel"
+        (click)="isPopupOpen=true"
+        (mousedown)="$event.preventDefault()"
+        [placeholder]="placeholder"
+        [value]="selectedOptionText">
       <div
-        [style.display]="isPopupOpen ? 'block' : 'none'"
+        *ngIf="isPopupOpen"
         class="select__popup">
         <input
           type="text"
+          class="select__popup__input"
           placeholder="Type to search"
           [(ngModel)]="searchPhrase"
           (keydown)="keydown($event)"
-          class="select__popup__input"
           focusOnShow>
           <bd-v-repeat 
             [options]="visibleOptions" 
-            (itemClicked)="optionClicked($event)">
-            <template #item="$item" bdItemTemplate [template]="optionTemplate">
+            (itemClicked)="optionClicked($event)"
+            [template]="optionTemplate">
+            <template #item="$item" bdItemTemplate>
+              <span>{{item}}</span>
             </template>
           </bd-v-repeat>
       </div>
@@ -50,10 +53,13 @@ import './_select.scss';
   `
 })
 export class BdSelect implements AfterContentInit, OnChanges {
+  public placeholder: string;
   public options: Array<any>;
   public visibleOptions: Array<any>;
   
   public isPopupOpen: boolean;
+  public selectedOptionText: string;
+  public value: any;
   public valueChange: EventEmitter<any>;
  
   public optionTemplate: TemplateRef; 
@@ -62,22 +68,23 @@ export class BdSelect implements AfterContentInit, OnChanges {
   public itemText: string;
   public itemTextFunction: Function;
 
-  public value: any;
   private _searchPhrase: string;
   private nativeElement: HTMLElement;
 
   constructor(elementRef: ElementRef) {
-    // this.changeDetectorRef.detach();
     this.nativeElement = elementRef.nativeElement;
     this.valueChange =  new EventEmitter();
 
     this._searchPhrase = '';
     this.isPopupOpen = false;
-    // this.visibleOptions = [];
+    this.visibleOptions = [];
+    this.selectedOptionText = '';
   }
 
-  optionClicked(item) {
-    console.log('Jupi bd-select ', item);
+  optionClicked(item: any) {
+    this.valueChange.emit(item);
+    this.value = item;
+    this.selectedOptionText = this.itemTextFunction(item); 
     this.isPopupOpen = false;
   }
 
@@ -147,33 +154,6 @@ export class BdSelect implements AfterContentInit, OnChanges {
   //   this.visibleOptions[this.selectedOptionIndex].selected = true;
   // }
 
-  // private initOptions() {
-  //   this.options = this.optionsContent.toArray();
-  //   this.visibleOptions = this.optionsContent.toArray();
-
-  //   for(let option of this.options) {
-  //     option.parent = this;
-  //   }
-  //   if(!this.value) {
-  //     return;
-  //   }
-
-  //   this.searchPhrase = '';
-  //   this.selectedOption = this.options.find((option) => option.value === this.value);
-  //   this.selectedOption.selected = true;
-  //   this.selectedOptionIndex = this.visibleOptions.indexOf(this.selectedOption);
-  // }
-
-
-//   set options(options: Array<any>) {
-//     this._options = options;
-//     this.visibleOptions = options;
-//     this._searchPhrase = '';
-
-//     // this.changeDetectorRef.detectChanges();
-//   }
-  
-
   set searchPhrase(value: string) {
     this._searchPhrase = value;
     this.visibleOptions = this.options;
@@ -204,11 +184,13 @@ export class BdSelect implements AfterContentInit, OnChanges {
       this._searchPhrase = '';
     }
     if(changes['itemText'] && changes['itemText'].currentValue) {
-      this.itemTextFunction = new Function('item', `return ${this.itemText}`);
+      this.itemTextFunction = new Function('item', `return ${this.itemText};`);
     }
   }
 
   ngAfterContentInit() {
-    this.optionTemplate = this.optionTemplateChild.getTemplate();
+    if(this.optionTemplateChild) {
+      this.optionTemplate = this.optionTemplateChild.getTemplate();
+    }
   }
 }

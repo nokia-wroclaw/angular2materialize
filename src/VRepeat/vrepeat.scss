@@ -9,5 +9,9 @@ bd-v-repeat {
     position: relative;
     margin: 0;
     height: 50px;
+    
+    &.even {
+      background-color: #eee;
+    }
   }
 }

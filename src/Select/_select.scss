@@ -1,6 +1,5 @@
 bd-select {
   .select {
-
     &__mainContainer {
       width: 100%;
       position: relative;
@@ -25,22 +24,15 @@ bd-select {
     background-color: #ffffff;
   }
 
-  &__ul {
-    display: block;
-    opacity: 1;
-    width: 100%;
-    height: 300px;
-
-    p {
-      margin: 0;
-      height: 50px;
-      cursor: pointer;
-      &.selected, &.selected:hover {
-        background-color: #26a69a; //replace that color with materializecss variable
-        color: #ffffff; //replace that color with materializecss variable
-      }
-      &:hover {
-      }
+  li {
+    cursor: pointer;
+    &.selected, &.selected:hover {
+      background-color: #26a69a; //replace that color with materializecss variable
+      color: #ffffff; //replace that color with materializecss variable
+    }
+    &:hover {
+      background-color: #26a69a;
+      color: #ffffff;
     }
   }
 }

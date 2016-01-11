@@ -20,14 +20,15 @@ const loremIpsumOptions = _.unique(`Sed posuere consectetur est at lobortis. Don
   template: `
   <div>
     <bd-select 
+      placeholder="Select your favourite fruit"
       [options]="arrayOfObjects" 
       (valueChange)="secondSelectValue=$event"
       itemText="item.name">
       <template #item="$item" bdOptionTemplate>
-        <p>
+        <span>
           <b>{{item.name}}</b>
           <span>{{item.dest}}</span>
-        </p>
+        </span>
       </template>
     </bd-select>
     <p><span>Selected value is: </span><strong>{{secondSelectValue | json}}</strong></p>
