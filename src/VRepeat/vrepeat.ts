@@ -1,4 +1,4 @@
-import {Component, EventEmitter, ContentChild} from 'angular2/core';
+import {Component, ElementRef, EventEmitter, ContentChild} from 'angular2/core';
 import {AfterContentInit, OnChanges} from 'angular2/core';
 import {TemplateRef, SimpleChange} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
@@ -16,7 +16,7 @@ const CONTAINER_CAPACITY = CONTAINER_HEIGHT / ITEM_HEIGHT;
 
 @Component({
   selector: 'bd-v-repeat',
-  inputs: ['options', 'outerTemplate:template'],
+  inputs: ['items', 'outerTemplate:template', 'selectedItem', 'scrollToSelection'],
   outputs: ['itemClicked'],
   host: {'(scroll)': 'onScroll($event)'},
   directives: [CORE_DIRECTIVES, BdItem],
@@ -26,11 +26,11 @@ const CONTAINER_CAPACITY = CONTAINER_HEIGHT / ITEM_HEIGHT;
       [style.height.px]="scrollerHeight - marginTop"
       [style.margin-top.px]="marginTop">
       <li
-        *ngFor="#item of visibleOptions; #even=even" 
+        *ngFor="#item of visibleItems; #even=even" 
+        (click)="onClick(item)"
         [item]="item" 
         [template]="template"
-        (click)="onClick(item)"
-        [ngClass]="{even: even}">
+        [ngClass]="{even: even, selected: item === selectedItem}">
       </li>
       <ng-content></ng-content>
     </ul>
@@ -39,37 +39,46 @@ const CONTAINER_CAPACITY = CONTAINER_HEIGHT / ITEM_HEIGHT;
 export class BdVRepeat implements AfterContentInit, OnChanges {
   @ContentChild(BdItemTemplate) itemTemplate: BdItemTemplate;
   public itemClicked: EventEmitter<any>;
+
   public scrollerHeight: number;
   public marginTop: number;
 
-  private firstItem: number;
-  private lastItem: number;
-  private options: Array<any>;
-  public visibleOptions: Array<any>;
+  public scrollToSelection: boolean;
+
+  public items: Array<any>;
+  public visibleItems: Array<any>;
+  public selectedItem: any;
 
   public template: TemplateRef;
   public outerTemplate:TemplateRef;
 
-  constructor() {
+  private firstItem: number;
+  private lastItem: number;
+  private scrollTop: number;
+
+  constructor(private element: ElementRef) {
     this.itemClicked = new EventEmitter();
     this.firstItem = 0;
     this.lastItem = 0;
     this.marginTop = 0;
+    this.scrollTop = 0;
     this.scrollerHeight = CONTAINER_HEIGHT;
   }
 
-  onScroll(event: any) {
-    let scrollTop = event.target.scrollTop;
-
-    let shouldHave = Math.ceil((scrollTop + CONTAINER_HEIGHT) / ITEM_HEIGHT + 5);
-    this.lastItem = shouldHave >= this.options.length ? this.options.length - 1 : shouldHave;
-    let shouldBeFirst = this.lastItem - (CONTAINER_CAPACITY + 10);
-    this.firstItem = shouldBeFirst <= 0 ? 0 : shouldBeFirst;
-
-    this.marginTop = this.firstItem * ITEM_HEIGHT;
-    this.visibleOptions = this.options.slice(this.firstItem, this.lastItem + 1);
+  onClick(item) {
+    this.itemClicked.emit(item);
   }
 
+  onScroll(event: any) {
+    this.scrollTop = event.target.scrollTop;
+
+    let shouldHave = Math.ceil((this.scrollTop + CONTAINER_HEIGHT) / ITEM_HEIGHT + 5);
+    this.lastItem = shouldHave >= this.items.length ? this.items.length - 1 : shouldHave;
+    let shouldBeFirst = this.lastItem - (CONTAINER_CAPACITY + 10);
+    
+    this.selectVisibleItems(shouldBeFirst, shouldHave);
+  }
+  
   ngAfterContentInit() {
     if(this.outerTemplate) {
       this.template = this.outerTemplate; 
@@ -83,24 +92,54 @@ export class BdVRepeat implements AfterContentInit, OnChanges {
   }
 
   ngOnChanges(changes: {[key: string]: SimpleChange}) {
-    if(changes['options'].currentValue) {
+    if(changes['items'] && changes['items'].currentValue) {
       this.initItems();
     }
+
+    if(this.scrollToSelection && changes['selectedItem'] && changes['selectedItem'].currentValue) {
+      this.scrollToSelectedItem();
+    }
   }
 
-  onClick(item) {
-    this.itemClicked.emit(item);
-  }
+  private scrollToSelectedItem() {
+    let itemIndex = this.items.indexOf(this.selectedItem);
+    let firstVisibleItem = Math.floor(this.scrollTop / ITEM_HEIGHT);
+    let lastVisibleItem = firstVisibleItem + CONTAINER_CAPACITY;
 
-  private initItems() {
-    if(!this.options) {
+    let isItemVisible = itemIndex >= firstVisibleItem && itemIndex < lastVisibleItem;
+
+    if(isItemVisible) {
       return;
     }
-    this.scrollerHeight = this.options.length * ITEM_HEIGHT;
+
+    let haveToScrollBy = 0;
+    if(itemIndex < firstVisibleItem) {
+      haveToScrollBy = itemIndex - firstVisibleItem;
+    } else {
+      haveToScrollBy = itemIndex - lastVisibleItem + 1;
+    }
+
+    this.element.nativeElement.scrollTop = this.scrollTop + haveToScrollBy * ITEM_HEIGHT;
+  }
+
+  private selectVisibleItems(start: number, end: number) {
+    this.lastItem = end >= this.items.length ? this.items.length - 1 : end;
+    this.firstItem = start <= 0 ? 0 : start;
+
+    this.marginTop = this.firstItem * ITEM_HEIGHT;
+    this.visibleItems = this.items.slice(this.firstItem, this.lastItem + 1);
+  }  
+ 
+
+  private initItems() {
+    if(!this.items) {
+      return;
+    }
+    this.scrollerHeight = this.items.length * ITEM_HEIGHT;
 
     this.firstItem = 0;
-    this.lastItem = (CONTAINER_CAPACITY + 5) > this.options.length ? this.options.length - 1 : CONTAINER_CAPACITY + 5;
+    this.lastItem = (CONTAINER_CAPACITY + 5) > this.items.length ? this.items.length - 1 : CONTAINER_CAPACITY + 5;
 
-    this.visibleOptions = this.options.slice(this.firstItem, this.lastItem + 1);
+    this.visibleItems = this.items.slice(this.firstItem, this.lastItem + 1);
   }
 }

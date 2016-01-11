@@ -17,7 +17,7 @@ export class BdItem implements AfterViewInit {
 
   ngAfterViewInit() {
     let view = this.appViewManager.createEmbeddedViewInContainer(this.container, 0, this.template);
-    view.setLocal('$item', this.item);
+    view.setLocal('item', this.item);
     this.changeDetector.detectChanges();
   }
 }

@@ -24,7 +24,7 @@ const loremIpsumOptions = _.unique(`Sed posuere consectetur est at lobortis. Don
       [options]="arrayOfObjects" 
       (valueChange)="secondSelectValue=$event"
       itemText="item.name">
-      <template #item="$item" bdOptionTemplate>
+      <template #item="item" bdOptionTemplate>
         <span>
           <b>{{item.name}}</b>
           <span>{{item.dest}}</span>
@@ -41,7 +41,7 @@ export default class BdSelectDocs {
   constructor() {
     this.arrayOfObjects = [];
     setTimeout(() =>  { 
-      this.arrayOfObjects = _.reduce(_.range(10000), (memo) => memo.concat([
+      this.arrayOfObjects = _.reduce(_.range(10), (memo) => memo.concat([
         {name: 'apple', dest: 'Apple - a doctor away sender'},
         {name: 'orange', dest: 'A bit old Orange'},
         {name: 'kiwi', dest: 'Juicy Kiwi'},
