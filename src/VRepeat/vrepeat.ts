@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, ContentChild} from 'angular2/core';
+import {Component, EventEmitter, ContentChild} from 'angular2/core';
 import {AfterContentInit, OnChanges} from 'angular2/core';
 import {TemplateRef, SimpleChange} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
@@ -18,22 +18,27 @@ const CONTAINER_CAPACITY = CONTAINER_HEIGHT / ITEM_HEIGHT;
   selector: 'bd-v-repeat',
   inputs: ['items', 'outerTemplate:template', 'selectedItem', 'scrollToSelection'],
   outputs: ['itemClicked'],
-  host: {'(scroll)': 'onScroll($event)'},
   directives: [CORE_DIRECTIVES, BdItem],
   template: `
-    <ul 
-      class="scroller" 
-      [style.height.px]="scrollerHeight - marginTop"
-      [style.margin-top.px]="marginTop">
-      <li
-        *ngFor="#item of visibleItems; #even=even" 
-        (click)="onClick(item)"
-        [item]="item" 
-        [template]="template"
-        [ngClass]="{even: even, selected: item === selectedItem}">
-      </li>
-      <ng-content></ng-content>
-    </ul>
+    <div 
+      #container 
+      class="container"
+      (scroll)="onScroll(container.scrollTop)"
+      [scrollTop]="scrollTop">
+      <ul 
+        class="scroller" 
+        [style.height.px]="scrollerHeight - marginTop"
+        [style.margin-top.px]="marginTop">
+        <li
+          *ngFor="#item of visibleItems; #even=even" 
+          (click)="onClick(item)"
+          [item]="item" 
+          [template]="template"
+          [ngClass]="{even: even, selected: item === selectedItem}">
+        </li>
+        <ng-content></ng-content>
+      </ul>
+    <div>
   `
 })
 export class BdVRepeat implements AfterContentInit, OnChanges {
@@ -42,6 +47,7 @@ export class BdVRepeat implements AfterContentInit, OnChanges {
 
   public scrollerHeight: number;
   public marginTop: number;
+  public scrollTop: number;
 
   public scrollToSelection: boolean;
 
@@ -54,9 +60,8 @@ export class BdVRepeat implements AfterContentInit, OnChanges {
 
   private firstItem: number;
   private lastItem: number;
-  private scrollTop: number;
 
-  constructor(private element: ElementRef) {
+  constructor() {
     this.itemClicked = new EventEmitter();
     this.firstItem = 0;
     this.lastItem = 0;
@@ -69,8 +74,8 @@ export class BdVRepeat implements AfterContentInit, OnChanges {
     this.itemClicked.emit(item);
   }
 
-  onScroll(event: any) {
-    this.scrollTop = event.target.scrollTop;
+  onScroll(scrollTop: number) {
+    this.scrollTop = scrollTop;
 
     let shouldHave = Math.ceil((this.scrollTop + CONTAINER_HEIGHT) / ITEM_HEIGHT + 5);
     this.lastItem = shouldHave >= this.items.length ? this.items.length - 1 : shouldHave;
@@ -119,7 +124,7 @@ export class BdVRepeat implements AfterContentInit, OnChanges {
       haveToScrollBy = itemIndex - lastVisibleItem + 1;
     }
 
-    this.element.nativeElement.scrollTop = this.scrollTop + haveToScrollBy * ITEM_HEIGHT;
+    this.scrollTop = this.scrollTop + haveToScrollBy * ITEM_HEIGHT;
   }
 
   private selectVisibleItems(start: number, end: number) {

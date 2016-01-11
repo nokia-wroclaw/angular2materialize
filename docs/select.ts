@@ -23,8 +23,8 @@ const loremIpsumOptions = _.unique(`Sed posuere consectetur est at lobortis. Don
       placeholder="Select your favourite fruit"
       [options]="arrayOfObjects" 
       (valueChange)="secondSelectValue=$event"
-      itemText="item.name">
-      <template #item="item" bdOptionTemplate>
+      itemText="$item.name">
+      <template #item="$item" bdOptionTemplate>
         <span>
           <b>{{item.name}}</b>
           <span>{{item.dest}}</span>

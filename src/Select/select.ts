@@ -1,7 +1,7 @@
 import {Component, EventEmitter} from 'angular2/core';
 import {OnChanges, SimpleChange} from 'angular2/core';
 import {ContentChild, AfterContentInit} from 'angular2/core';
-import {TemplateRef, ElementRef} from 'angular2/core';
+import {TemplateRef} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
 
 import * as _ from 'lodash';
@@ -13,6 +13,8 @@ import {BdOptionTemplate} from './option-template';
 export {BdOptionTemplate};
 
 import './_select.scss';
+
+const DEFAULT_ITEM_TEXT_FUNCTION = new Function('$item', 'return $item;');
 
 @Component({
   selector: 'bd-select',
@@ -46,7 +48,7 @@ import './_select.scss';
             [selectedItem]="selectedOption"
             [scrollToSelection]="true"
             [template]="optionTemplate">
-            <template #item="item" bdItemTemplate>
+            <template #item="$item" bdItemTemplate>
               <span>{{item}}</span>
             </template>
           </bd-v-repeat>
@@ -74,10 +76,8 @@ export class BdSelect implements AfterContentInit, OnChanges {
   public itemTextFunction: Function;
 
   private _searchPhrase: string;
-  private nativeElement: HTMLElement;
 
-  constructor(elementRef: ElementRef) {
-    this.nativeElement = elementRef.nativeElement;
+  constructor() {
     this.valueChange =  new EventEmitter();
 
     this._searchPhrase = '';
@@ -85,6 +85,7 @@ export class BdSelect implements AfterContentInit, OnChanges {
     this.visibleOptions = [];
     this.selectedOptionText = '';
     this.selectedOptionIndex = 0;
+    this.itemTextFunction = DEFAULT_ITEM_TEXT_FUNCTION;
   }
 
   optionClicked(item: any) {
@@ -138,7 +139,7 @@ export class BdSelect implements AfterContentInit, OnChanges {
       this.selectedOption = this.visibleOptions[this.selectedOptionIndex];
     }
     if(changes['itemText'] && changes['itemText'].currentValue) {
-      this.itemTextFunction = new Function('item', `return ${this.itemText};`);
+      this.itemTextFunction = new Function('$item', `return ${this.itemText};`);
     }
   }
 

@@ -4,7 +4,7 @@ import {AfterViewInit, ChangeDetectorRef} from 'angular2/core';
 import {TemplateRef, ElementRef} from 'angular2/core';
 
 @Component({
-  selector: 'bd-v-repeat>#scroller>li',
+  selector: 'bd-v-repeat #scroller>li',
   inputs: ['item', 'template'],
   template: '<div #container></div>',
 })
@@ -17,7 +17,7 @@ export class BdItem implements AfterViewInit {
 
   ngAfterViewInit() {
     let view = this.appViewManager.createEmbeddedViewInContainer(this.container, 0, this.template);
-    view.setLocal('item', this.item);
+    view.setLocal('$item', this.item);
     this.changeDetector.detectChanges();
   }
 }

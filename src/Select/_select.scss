@@ -24,15 +24,17 @@ bd-select {
     background-color: #ffffff;
   }
 
-  li {
-    cursor: pointer;
-    &.selected, &.selected:hover {
-      background-color: #26a69a; //replace that color with materializecss variable
-      color: #ffffff; //replace that color with materializecss variable
-    }
-    &:hover {
-      background-color: #26a69a;
-      color: #ffffff;
+  bd-v-repeat {
+    li {
+      cursor: pointer;
+      &.selected, &.selected:hover {
+        background-color: #26a69a; //replace that color with materializecss variable
+        color: #ffffff; //replace that color with materializecss variable
+      }
+      &:hover {
+        background-color: #26a69a;
+        color: #ffffff;
+      }
     }
   }
 }

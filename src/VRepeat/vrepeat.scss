@@ -1,17 +1,19 @@
 bd-v-repeat {
-  overflow-y: scroll;
-  overflow-x: hidden;
-  display: block;
-  height: 300px;
-  width: 100%;
+  .container {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: block;
+    height: 300px;
+    width: 100%;
 
-  li {
-    position: relative;
-    margin: 0;
-    height: 50px;
-    
-    &.even {
-      background-color: #eee;
+    li {
+      position: relative;
+      margin: 0;
+      height: 50px;
+      
+      &.even {
+        background-color: #eee;
+      }
     }
   }
 }
