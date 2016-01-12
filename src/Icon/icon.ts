@@ -10,14 +10,14 @@ import {CORE_DIRECTIVES} from 'angular2/common';
     </i>
   `
 })
-export default class BdIcon {
+export class BdIcon {
 
   private __classes: any = {
     'material-icons': true,
     's12': true
   };
 
-  get classes(){
+  get classes() {
     return this.__classes;
   }
 

@@ -21,6 +21,5 @@ import {BdFloatingButton, BdIcon} from 'angular2-material';
     </div>
   `
 })
-export default class BdFloatingButtonDocs {
-
+export class BdFloatingButtonDocs {
 }

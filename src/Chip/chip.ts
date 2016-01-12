@@ -11,7 +11,7 @@ import {CORE_DIRECTIVES} from 'angular2/common';
   `,
 
 })
-export default class BdChip {
+export class BdChip {
 
   public static toString(): string {
     return 'bd-chip';

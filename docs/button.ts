@@ -23,6 +23,5 @@ import {BdButton} from 'angular2-material';
     </div>
   `
 })
-export default class BdButtonDocs {
-
+export class BdButtonDocs {
 }

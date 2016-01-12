@@ -56,7 +56,7 @@ export class BdVRepeat implements AfterContentInit, OnChanges {
   public selectedItem: any;
 
   public template: TemplateRef;
-  public outerTemplate:TemplateRef;
+  public outerTemplate: TemplateRef;
 
   private firstItem: number;
   private lastItem: number;
@@ -80,28 +80,28 @@ export class BdVRepeat implements AfterContentInit, OnChanges {
     let shouldHave = Math.ceil((this.scrollTop + CONTAINER_HEIGHT) / ITEM_HEIGHT + 5);
     this.lastItem = shouldHave >= this.items.length ? this.items.length - 1 : shouldHave;
     let shouldBeFirst = this.lastItem - (CONTAINER_CAPACITY + 10);
-    
+
     this.selectVisibleItems(shouldBeFirst, shouldHave);
   }
-  
+
   ngAfterContentInit() {
-    if(this.outerTemplate) {
-      this.template = this.outerTemplate; 
-      this.initItems();   
-    } else if(this.itemTemplate) {
+    if (this.outerTemplate) {
+      this.template = this.outerTemplate;
+      this.initItems();
+    } else if (this.itemTemplate) {
       this.template = this.itemTemplate.getTemplate();
-      this.initItems();   
+      this.initItems();
     } else {
       throw Error('BdItemTemplate directive inside BdVRepeat or template properties is required');
     }
   }
 
-  ngOnChanges(changes: {[key: string]: SimpleChange}) {
-    if(changes['items'] && changes['items'].currentValue) {
+  ngOnChanges(changes: { [key: string]: SimpleChange }) {
+    if (changes['items'] && changes['items'].currentValue) {
       this.initItems();
     }
 
-    if(this.scrollToSelection && changes['selectedItem'] && changes['selectedItem'].currentValue) {
+    if (this.scrollToSelection && changes['selectedItem'] && changes['selectedItem'].currentValue) {
       this.scrollToSelectedItem();
     }
   }
@@ -113,12 +113,12 @@ export class BdVRepeat implements AfterContentInit, OnChanges {
 
     let isItemVisible = itemIndex >= firstVisibleItem && itemIndex < lastVisibleItem;
 
-    if(isItemVisible) {
+    if (isItemVisible) {
       return;
     }
 
     let haveToScrollBy = 0;
-    if(itemIndex < firstVisibleItem) {
+    if (itemIndex < firstVisibleItem) {
       haveToScrollBy = itemIndex - firstVisibleItem;
     } else {
       haveToScrollBy = itemIndex - lastVisibleItem + 1;
@@ -133,11 +133,11 @@ export class BdVRepeat implements AfterContentInit, OnChanges {
 
     this.marginTop = this.firstItem * ITEM_HEIGHT;
     this.visibleItems = this.items.slice(this.firstItem, this.lastItem + 1);
-  }  
- 
+  }
+
 
   private initItems() {
-    if(!this.items) {
+    if (!this.items) {
       return;
     }
     this.scrollerHeight = this.items.length * ITEM_HEIGHT;

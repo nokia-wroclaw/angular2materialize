@@ -5,7 +5,7 @@ import {Directive, TemplateRef} from 'angular2/core';
 })
 export class BdItemTemplate {
 
-  constructor(private template: TemplateRef) {}
+  constructor(private template: TemplateRef) { }
 
   getTemplate() {
     return this.template;

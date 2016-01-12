@@ -17,7 +17,7 @@ import {BdDatePicker, BdTimePicker} from 'angular2-material';
     </div>`
 })
 
-export default class BdDateTimePickerDocs {
+export class BdDateTimePickerDocs {
 
   exampleDate: Date = new Date();
 
@@ -25,5 +25,5 @@ export default class BdDateTimePickerDocs {
     clear: 'Delete',
   };
 
-  exampleTimeParams = { };
+  exampleTimeParams = {};
 }

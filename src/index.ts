@@ -1,43 +1,17 @@
-import BdButton from './Button/button';
-import BdFloatingButton from './FloatingButton/floatingButton';
-import BdIcon from './Icon/icon';
-import BdChip from './Chip/chip';
-import {BdCard, BdCardAction, BdCardContent, BdCardImage} from './Card/index';
-
-import {BdSelect, BdOptionTemplate} from './Select/select';
-import {BdVRepeat, BdItemTemplate} from './VRepeat/vrepeat';
-
-import {BdList, BdListItem} from './List/index'
-import BdDatePicker from './Datepicker/datepicker';
-import BdInputContainer from './InputContainer/inputContainer';
-import BdTimePicker from './Timepicker/timepicker';
-import BdDialog from './Dialog/dialog';
-
 import './materialize';
 import './materialize-icons.scss';
 
-export {
-  BdButton,
-  BdFloatingButton,
-  BdIcon,
-  BdChip,
-  BdInputContainer,
-  BdDialog,
- 
-  BdCard,
-  BdCardAction,
-  BdCardContent,
-  BdCardImage,
-   
-  BdList,
-  BdListItem,
+export {BdButton} from './Button/button';
+export {BdFloatingButton} from './FloatingButton/floatingButton';
+export {BdIcon} from './Icon/icon';
+export {BdChip} from './Chip/chip';
 
-  BdDatePicker,
-  BdTimePicker,
-  
-  BdSelect,
-  BdOptionTemplate,
+export {BdCard, BdCardAction, BdCardContent, BdCardImage} from './Card/index';
+export {BdSelect, BdOptionTemplate} from './Select/select';
+export {BdVRepeat, BdItemTemplate} from './VRepeat/vrepeat';
+export {BdList, BdListItem} from './List/index'
 
-  BdVRepeat, 
-  BdItemTemplate,
-};
+export {BdDatePicker} from './Datepicker/datepicker';
+export {BdInputContainer} from './InputContainer/inputContainer';
+export {BdTimePicker} from './Timepicker/timepicker';
+export {BdDialog} from './Dialog/dialog';

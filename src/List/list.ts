@@ -10,9 +10,9 @@ import {CORE_DIRECTIVES} from 'angular2/common';
     </ul>
   `
 })
-export default class BdList {
+export class BdList {
 
-  public static toString():string {
+  public static toString(): string {
     return 'bd-list';
   }
 

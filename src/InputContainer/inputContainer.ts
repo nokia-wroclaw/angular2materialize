@@ -10,7 +10,7 @@ import {CORE_DIRECTIVES} from 'angular2/common';
     </div>
   `
 })
-export default class BdInputContainer {
+export class BdInputContainer {
 
   private __classes: any = {
     'input-field': true,
@@ -22,7 +22,7 @@ export default class BdInputContainer {
     return this.__classes;
   }
 
-  public static toString():string {
+  public static toString(): string {
     return 'bd-input-container';
   }
 }

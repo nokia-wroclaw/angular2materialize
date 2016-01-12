@@ -17,6 +17,5 @@ import {BdChip, BdIcon} from 'angular2-material';
   </div>
   `
 })
-export default class BdChipDocs {
-
+export class BdChipDocs {
 }

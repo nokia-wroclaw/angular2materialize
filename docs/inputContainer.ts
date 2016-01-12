@@ -20,6 +20,5 @@ import {Component, View} from 'angular2/core';
     </div>
   `
 })
-export default class BdInputContainerDocs {
-
+export class BdInputContainerDocs {
 }

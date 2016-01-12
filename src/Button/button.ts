@@ -14,17 +14,12 @@ import {CORE_DIRECTIVES} from 'angular2/common';
   `,
   inputs: ['disabled', 'size', 'isFlat', 'color']
 })
-
-export default class BdButton {
+export class BdButton {
 
   public static LARGE: string = 'large';
-
   public disabled: boolean = false;
-
   public isFlat: boolean = false;
-
   private __size: string = '';
-
   private __classes: any = {
     'btn': true,
     'waves-effect': true,
@@ -38,7 +33,7 @@ export default class BdButton {
     return 'bd-button';
   }
 
-  constructor() {}
+  constructor() { }
 
   set size(size: string) {
     this.__size = size;
@@ -56,6 +51,4 @@ export default class BdButton {
   set color(color: string) {
     this.__classes[color] = true;
   }
-
 }
-

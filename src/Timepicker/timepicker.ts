@@ -17,8 +17,7 @@ const timePicker = new TimePicker();
       <label *ngIf="!date">{{label}}</label>
     </div>`
 })
-
-export default class BdTimePicker implements OnInit {
+export class BdTimePicker implements OnInit {
 
   public date: Date = null;
 
@@ -28,9 +27,9 @@ export default class BdTimePicker implements OnInit {
 
   public params: Object = null;
 
-  public static DEFAULT_PARAMS: Object = {timeFormat: 'military'};
+  public static DEFAULT_PARAMS: Object = { timeFormat: 'military' };
 
-  constructor(public elementRef:ElementRef) {
+  constructor(public elementRef: ElementRef) {
     this.dateChange = new EventEmitter<Date>();
   }
 
@@ -55,7 +54,7 @@ export default class BdTimePicker implements OnInit {
     this.dateChange.emit(this.date);
   }
 
-  public static toString() : string {
+  public static toString(): string {
     return 'bd-time-picker';
   }
 }

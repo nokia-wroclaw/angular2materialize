@@ -3,22 +3,22 @@
 import {Component} from 'angular2/core';
 import {bootstrap, ELEMENT_PROBE_PROVIDERS} from 'angular2/platform/browser';
 
-import BdButtonDocs from './button';
-import BdListDocs from './list';
-import BdSelectDocs from './select';
-import BdCardDocs from './card';
-import BdIcon from './icon';
-import BdChip from './chip';
-import BdFloatingButton from './floatingButton';
-import BdDateTimePickerDocs from './dateTimePicker';
-import BdInputContainerDocs from './inputContainer';
+import {BdButtonDocs} from './button';
+import {BdListDocs} from './list';
+import {BdSelectDocs} from './select';
+import {BdCardDocs} from './card';
+import {BdIconDocs} from './icon';
+import {BdChipDocs} from './chip';
+import {BdFloatingButtonDocs} from './floatingButton';
+import {BdDateTimePickerDocs} from './dateTimePicker';
+import {BdInputContainerDocs} from './inputContainer';
 
 import './index.html';
 import './styles.scss';
 
 @Component({
   selector: 'bd-docs',
-  directives: [BdButtonDocs, BdListDocs, BdSelectDocs, BdCardDocs, BdDateTimePickerDocs, BdIcon, BdFloatingButton, BdChip, BdInputContainerDocs],
+  directives: [BdButtonDocs, BdListDocs, BdSelectDocs, BdCardDocs, BdDateTimePickerDocs, BdIconDocs, BdFloatingButtonDocs, BdChipDocs, BdInputContainerDocs],
   template: `
     <h3 class="header">Button</h3>
     <bd-button-docs></bd-button-docs>

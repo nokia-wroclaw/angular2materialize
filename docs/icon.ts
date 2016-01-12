@@ -8,6 +8,5 @@ import {BdIcon} from 'angular2-material';
     <bd-icon>add</bd-icon>
   `
 })
-export default class BdIconDocs {
-
+export class BdIconDocs {
 }

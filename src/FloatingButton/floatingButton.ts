@@ -14,7 +14,7 @@ import {CORE_DIRECTIVES} from 'angular2/common';
   inputs: ['disabled', 'size'],
   outputs: ['click']
 })
-export default class BdFloatingButton {
+export class BdFloatingButton {
 
   public static LARGE: string = 'large';
 
@@ -64,4 +64,3 @@ export default class BdFloatingButton {
   }
 
 }
-

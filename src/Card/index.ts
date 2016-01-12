@@ -1,11 +1,4 @@
-import BdCard from './card';
-import BdCardAction from './cardAction';
-import BdCardContent from './cardContent';
-import BdCardImage from './cardImage';
-
-export {
-  BdCard,
-  BdCardAction,
-  BdCardContent,
-  BdCardImage
-}
+export {BdCard} from './card';
+export {BdCardAction} from './cardAction';
+export {BdCardContent} from './cardContent';
+export {BdCardImage} from './cardImage';

@@ -8,13 +8,11 @@ import {CORE_DIRECTIVES} from 'angular2/common';
     <li class="collection-item">
       <ng-content></ng-content>
     </li>
-  `,
-  inputs: [],
-  outputs: []
+  `
 })
-export default class BdListItem {
+export class BdListItem {
 
-  public static toString() : string {
+  public static toString(): string {
     return 'bd-list-item';
   }
 

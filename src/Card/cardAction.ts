@@ -8,9 +8,9 @@ import {Component} from 'angular2/core';
     </div>
   `
 })
-export default class BdCardAction {
+export class BdCardAction {
 
-  static toString():string {
+  static toString(): string {
     return 'bd-card-action';
   }
 }

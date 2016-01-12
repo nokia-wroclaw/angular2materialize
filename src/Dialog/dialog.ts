@@ -19,7 +19,7 @@ import * as $ from 'jquery';
   inputs: ['isOpen', 'bottom', 'fixedFooter', 'dismissible', 'opacity', 'inDuration', 'outDuration', 'withFooter'],
   outputs: ['isOpenChange']
 })
-export default class BdDialog implements OnChanges, OnInit {
+export class BdDialog implements OnChanges, OnInit {
   public classes: any;
   public bottom: boolean;
   public isOpen: boolean;
@@ -43,20 +43,20 @@ export default class BdDialog implements OnChanges, OnInit {
     this.isOpenChange = new EventEmitter();
   }
 
-  ngOnChanges(changes: {[key: string]: SimpleChange}) {
-    for(let change in changes) {
-      if(change === 'bottom' || change === 'fixedFooter') {
-        this.classes =  {
+  ngOnChanges(changes: { [key: string]: SimpleChange }) {
+    for (let change in changes) {
+      if (change === 'bottom' || change === 'fixedFooter') {
+        this.classes = {
           'bottom-sheet': this.bottom,
           'modal-fixed-footer': this.fixedFooter
         };
       }
     }
 
-    if('isOpen' in changes) {
-      if(this.isOpen) {
+    if ('isOpen' in changes) {
+      if (this.isOpen) {
         $(this.element.querySelector('#bdDialog')).openModal(this.getOptions());
-      } else if(changes['isOpen'].previousValue === true) {
+      } else if (changes['isOpen'].previousValue === true) {
         $(this.element.querySelector('#bdDialog')).closeModal();
       }
     }

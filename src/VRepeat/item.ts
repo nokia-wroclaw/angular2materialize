@@ -13,7 +13,7 @@ export class BdItem implements AfterViewInit {
   @ViewChild('container') container: ElementRef;
   private template: TemplateRef;
 
-  constructor(private appViewManager: AppViewManager, private changeDetector: ChangeDetectorRef) {}
+  constructor(private appViewManager: AppViewManager, private changeDetector: ChangeDetectorRef) { }
 
   ngAfterViewInit() {
     let view = this.appViewManager.createEmbeddedViewInContainer(this.container, 0, this.template);

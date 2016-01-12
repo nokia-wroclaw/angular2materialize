@@ -6,13 +6,13 @@ import {CORE_DIRECTIVES} from 'angular2/common';
 
 import * as _ from 'lodash';
 
-import FocusOnShow from './focusOnShow';
+import {FocusOnShow} from './focusOnShow';
 import {BdVRepeat, BdItemTemplate} from '../VRepeat/vrepeat';
 
 import {BdOptionTemplate} from './option-template';
 export {BdOptionTemplate};
 
-import './_select.scss';
+import './select.scss';
 
 const DEFAULT_ITEM_TEXT_FUNCTION = new Function('$item', 'return $item;');
 
@@ -60,7 +60,7 @@ export class BdSelect implements AfterContentInit, OnChanges {
   public placeholder: string;
   public options: Array<any>;
   public visibleOptions: Array<any>;
-  
+
   public isPopupOpen: boolean;
   public selectedOptionText: string;
   public value: any;
@@ -68,8 +68,8 @@ export class BdSelect implements AfterContentInit, OnChanges {
 
   public selectedOption: any;
   private selectedOptionIndex: number;
- 
-  public optionTemplate: TemplateRef; 
+
+  public optionTemplate: TemplateRef;
   @ContentChild(BdOptionTemplate) optionTemplateChild: BdOptionTemplate;
 
   public itemText: string;
@@ -78,9 +78,10 @@ export class BdSelect implements AfterContentInit, OnChanges {
   private _searchPhrase: string;
 
   constructor() {
-    this.valueChange =  new EventEmitter();
+    this.valueChange = new EventEmitter();
 
     this._searchPhrase = '';
+    this.placeholder = '';
     this.isPopupOpen = false;
     this.visibleOptions = [];
     this.selectedOptionText = '';
@@ -91,12 +92,12 @@ export class BdSelect implements AfterContentInit, OnChanges {
   optionClicked(item: any) {
     this.valueChange.emit(item);
     this.value = item;
-    this.selectedOptionText = this.itemTextFunction(item); 
+    this.selectedOptionText = this.itemTextFunction(item);
     this.isPopupOpen = false;
   }
 
   keydown(event: KeyboardEvent) {
-    switch(event.which) {
+    switch (event.which) {
       case 13: //enter
         this.isPopupOpen = false;
         this.optionClicked(this.selectedOption);
@@ -112,7 +113,7 @@ export class BdSelect implements AfterContentInit, OnChanges {
         event.preventDefault();
         this.changeSelectedOption(1);
         break;
-      }
+    }
   }
 
   set searchPhrase(value: string) {
@@ -130,21 +131,21 @@ export class BdSelect implements AfterContentInit, OnChanges {
     return this._searchPhrase;
   }
 
-  ngOnChanges(changes: {[key: string]: SimpleChange}) {
-    if(changes['options'] && changes['options'].currentValue) {
+  ngOnChanges(changes: { [key: string]: SimpleChange }) {
+    if (changes['options'] && changes['options'].currentValue) {
       this.visibleOptions = this.options;
       this._searchPhrase = '';
 
       this.selectedOptionIndex = 0;
       this.selectedOption = this.visibleOptions[this.selectedOptionIndex];
     }
-    if(changes['itemText'] && changes['itemText'].currentValue) {
+    if (changes['itemText'] && changes['itemText'].currentValue) {
       this.itemTextFunction = new Function('$item', `return ${this.itemText};`);
     }
   }
 
   ngAfterContentInit() {
-    if(this.optionTemplateChild) {
+    if (this.optionTemplateChild) {
       this.optionTemplate = this.optionTemplateChild.getTemplate();
     }
   }

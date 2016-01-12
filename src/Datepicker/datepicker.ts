@@ -15,27 +15,27 @@ import * as $ from 'jquery';
     </div>`
 })
 
-export default class BdDatePicker implements OnInit {
+export class BdDatePicker implements OnInit {
 
-  public date:Date = null;
+  public date: Date = null;
 
-  public label:String = 'date';
+  public label: String = 'date';
 
-  public dateChange:EventEmitter<Date>;
+  public dateChange: EventEmitter<Date>;
 
-  public params:Object = null;
+  public params: Object = null;
 
-  public static DEFAULT_PARAMS:Object = {
+  public static DEFAULT_PARAMS: Object = {
     selectMonths: true,
     container: document.body
   };
 
-  constructor(public elementRef:ElementRef) {
+  constructor(public elementRef: ElementRef) {
     this.dateChange = new EventEmitter<Date>();
   }
 
   ngOnInit() {
-    let element:Element = this.elementRef.nativeElement;
+    let element: Element = this.elementRef.nativeElement;
     this.registerAsDatePicker(element.querySelector('input'));
   }
 
@@ -49,18 +49,18 @@ export default class BdDatePicker implements OnInit {
     this.initializeDatePickerWithStartingValue(element, mergedParams, this.date);
   }
 
-  private initializeDatePickerWithStartingValue(element:Element, mergedParams:Object, date:Date) {
-    let dateInput:any = $(element).pickadate(mergedParams);
+  private initializeDatePickerWithStartingValue(element: Element, mergedParams: Object, date: Date) {
+    let dateInput: any = $(element).pickadate(mergedParams);
     let picker = dateInput.pickadate('picker');
     picker.set('select', date);
   }
 
   private onDateChange(dateChangeResult) {
-    let selectedDate:Date = dateChangeResult.select ? this.extractDate(dateChangeResult.select) : null;
+    let selectedDate: Date = dateChangeResult.select ? this.extractDate(dateChangeResult.select) : null;
     this.dateChange.next(selectedDate);
   }
 
-  private extractDate(selectedDate:string) {
+  private extractDate(selectedDate: string) {
     let newDate = new Date(selectedDate);
     if (this.date) {
       newDate.setHours(this.date.getHours(), this.date.getMinutes(), this.date.getSeconds(), this.date.getMilliseconds());
@@ -68,7 +68,7 @@ export default class BdDatePicker implements OnInit {
     return newDate;
   }
 
-  public static toString():string {
+  public static toString(): string {
     return 'bd-date-picker';
   }
 }

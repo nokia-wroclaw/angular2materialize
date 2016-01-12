@@ -13,6 +13,5 @@ import {Component, View} from 'angular2/core';
     </div>
   `
 })
-export default class BdListDocs {
-
+export class BdListDocs {
 }

@@ -35,20 +35,19 @@ const loremIpsumOptions = _.unique(`Sed posuere consectetur est at lobortis. Don
   </div>
   `
 })
-export default class BdSelectDocs {
+export class BdSelectDocs {
   public arrayOfObjects: Array<any>;
-  
+
   constructor() {
     this.arrayOfObjects = [];
-    setTimeout(() =>  { 
+    setTimeout(() => {
       this.arrayOfObjects = _.reduce(_.range(10), (memo) => memo.concat([
-        {name: 'apple', dest: 'Apple - a doctor away sender'},
-        {name: 'orange', dest: 'A bit old Orange'},
-        {name: 'kiwi', dest: 'Juicy Kiwi'},
-        {name: 'mango', dest: 'Yellow mango'},
-        {name: 'durian', dest: 'Durian - only for hardcore people'}
+        { name: 'apple', dest: 'Apple - a doctor away sender' },
+        { name: 'orange', dest: 'A bit old Orange' },
+        { name: 'kiwi', dest: 'Juicy Kiwi' },
+        { name: 'mango', dest: 'Yellow mango' },
+        { name: 'durian', dest: 'Durian - only for hardcore people' }
       ]), []);
-      console.log(this.arrayOfObjects.length);
     }, 1000);
   }
 }

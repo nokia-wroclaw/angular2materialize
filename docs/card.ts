@@ -22,5 +22,5 @@ import {BdCard, BdCardAction, BdCardContent, BdCardImage} from 'angular2-materia
     </div>
   `
 })
-export default class BdCardDocs {
+export class BdCardDocs {
 }

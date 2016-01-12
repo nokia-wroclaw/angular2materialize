@@ -14,10 +14,9 @@ import {CORE_DIRECTIVES} from 'angular2/common';
   `,
   inputs: ['size']
 })
-export default class BdCard {
+export class BdCard {
 
   public size: string;
-
   private __classes: any = {
     small: this.size === 'small',
     medium: this.size === 'medium',

@@ -1,7 +1,7 @@
 /// <reference path="./jquery.d.ts" />
 
 import * as $ from 'jquery';
-const g = <any> window;
+const g = <any>window;
 if (!g.jQuery) {
   g.jQuery = $;
   g.$ = $;
