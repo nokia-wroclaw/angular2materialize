@@ -7,8 +7,8 @@ import {Component, View} from 'angular2/core';
   template: `
     <div>
       <bd-list>
-        <bd-list-item>dupa1</bd-list-item>
-        <bd-list-item>dupa2</bd-list-item>
+        <bd-list-item>Item 1</bd-list-item>
+        <bd-list-item>Item 2</bd-list-item>
       </bd-list>
     </div>
   `
