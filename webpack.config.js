@@ -36,8 +36,7 @@ module.exports = {
   resolve: {
     extensions: ['', '.ts', '.js', '.json'],
     alias: {
-      jQuery: 'jquery',
-      'angular2-material': 'local-angular2-material'
+      jQuery: 'jquery'
     }
   },
   module: {

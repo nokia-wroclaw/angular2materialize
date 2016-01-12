@@ -1,5 +1,5 @@
 import {Component, View} from 'angular2/core';
-import {BdFloatingButton, BdIcon} from 'angular2-material';
+import {BdFloatingButton, BdIcon} from 'angular2materialize';
 
 @Component({
   selector: 'bd-floating-button-docs',

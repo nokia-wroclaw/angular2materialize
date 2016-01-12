@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import {BdCard, BdCardAction, BdCardContent, BdCardImage} from 'angular2-material';
+import {BdCard, BdCardAction, BdCardContent, BdCardImage} from 'angular2materialize';
 
 @Component({
   selector: 'bd-card-docs',

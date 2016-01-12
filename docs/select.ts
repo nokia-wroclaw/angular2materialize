@@ -1,7 +1,7 @@
 import {Component} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
-import {BdSelect, BdOptionTemplate} from 'angular2-material';
 import * as _ from 'lodash';
+import {BdSelect, BdOptionTemplate} from 'angular2materialize';
 
 const loremIpsumOptions = _.unique(`Sed posuere consectetur est at lobortis. Donec ullamcorper nulla non metus auctor
   fringilla. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Sed posuere consectetur est at lobortis.
