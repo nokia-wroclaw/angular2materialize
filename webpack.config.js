@@ -36,7 +36,8 @@ module.exports = {
   resolve: {
     extensions: ['', '.ts', '.js', '.json'],
     alias: {
-      jQuery: 'jquery'
+      jQuery: 'jquery',
+      'angular2-materialize': 'angular2materialize'
     }
   },
   module: {

@@ -1,5 +1,5 @@
 import {Component, View} from 'angular2/core';
-import {BdIcon} from 'angular2materialize';
+import {BdIcon} from 'angular2-materialize';
 
 @Component({
   selector: 'bd-icon-docs',

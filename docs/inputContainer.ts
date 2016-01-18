@@ -1,5 +1,5 @@
 import {Component, View} from 'angular2/core';
-import {BdInputContainer, BdIcon} from 'angular2materialize';
+import {BdInputContainer, BdIcon} from 'angular2-materialize';
 
 @Component({
   selector: 'bd-input-container-docs',
