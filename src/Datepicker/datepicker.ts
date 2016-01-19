@@ -1,6 +1,5 @@
 import {Component, OnInit, ElementRef, EventEmitter} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
-
 import * as $ from 'jquery';
 
 @Component({
@@ -10,7 +9,7 @@ import * as $ from 'jquery';
   outputs: ['dateChange'],
   template: `
     <div class="input-field">
-      <input class="date-input" [value]='date | date' type='date' />
+      <input class="date-input" (click)="open()" [value]='date | date' type='date' />
       <label *ngIf="!date" for="date-input" >{{label}}</label>
     </div>`
 })
@@ -29,6 +28,8 @@ export class BdDatePicker implements OnInit {
     selectMonths: true,
     container: document.body
   };
+
+  private picker: any;
 
   constructor(public elementRef: ElementRef) {
     this.dateChange = new EventEmitter<Date>();
@@ -51,8 +52,8 @@ export class BdDatePicker implements OnInit {
 
   private initializeDatePickerWithStartingValue(element: Element, mergedParams: Object, date: Date) {
     let dateInput: any = $(element).pickadate(mergedParams);
-    let picker = dateInput.pickadate('picker');
-    picker.set('select', date);
+    this.picker = dateInput.pickadate('picker');
+    this.picker.set('select', date);
   }
 
   private onDateChange(dateChangeResult) {
@@ -66,6 +67,10 @@ export class BdDatePicker implements OnInit {
       newDate.setHours(this.date.getHours(), this.date.getMinutes(), this.date.getSeconds(), this.date.getMilliseconds());
     }
     return newDate;
+  }
+
+  private open() {
+    this.picker.open();
   }
 
   public static toString(): string {
