@@ -15,3 +15,4 @@ export {BdDatePicker} from './Datepicker/datepicker';
 export {BdInputContainer} from './InputContainer/inputContainer';
 export {BdTimePicker} from './Timepicker/timepicker';
 export {BdDialog} from './Dialog/dialog';
+export {BdToast} from './Toast/toast';

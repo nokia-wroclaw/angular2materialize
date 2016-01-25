@@ -7,6 +7,7 @@ import {BdSelectDocs} from './select';
 import {BdCardDocs} from './card';
 import {BdIconDocs} from './icon';
 import {BdChipDocs} from './chip';
+import {BdToastDocs} from './toast';
 import {BdFloatingButtonDocs} from './floatingButton';
 import {BdDateTimePickerDocs} from './dateTimePicker';
 import {BdInputContainerDocs} from './inputContainer';
@@ -16,7 +17,7 @@ import './styles.scss';
 
 @Component({
   selector: 'bd-docs',
-  directives: [BdButtonDocs, BdListDocs, BdSelectDocs, BdCardDocs, BdDateTimePickerDocs, BdIconDocs, BdFloatingButtonDocs, BdChipDocs, BdInputContainerDocs],
+  directives: [BdButtonDocs, BdListDocs, BdSelectDocs, BdCardDocs, BdDateTimePickerDocs, BdIconDocs, BdFloatingButtonDocs, BdChipDocs, BdInputContainerDocs, BdToastDocs],
   template: `
     <h3 class="header">Button</h3>
     <bd-button-docs></bd-button-docs>
@@ -36,6 +37,8 @@ import './styles.scss';
     <bd-date-time-picker-docs></bd-date-time-picker-docs>
     <h3 class="header">Input container</h3>
     <bd-input-container-docs></bd-input-container-docs>
+    <h3 class="header">Toast notification</h3>
+    <bd-toast-docs></bd-toast-docs>
   `
 })
 class App {
