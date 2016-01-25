@@ -1,5 +1,5 @@
 import {Component, View} from 'angular2/core';
-import {BdList, BdListItem} from 'angular2-materialize';
+import {BdList, BdListItem} from 'angular2materialize';
 
 @Component({
   selector: 'bd-list-docs',

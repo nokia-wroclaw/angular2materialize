@@ -1,7 +1,7 @@
 import {Component} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
 import * as _ from 'lodash';
-import {BdSelect, BdOptionTemplate} from 'angular2-materialize';
+import {BdSelect, BdOptionTemplate} from 'angular2materialize';
 
 const loremIpsumOptions = _.uniq(`Sed posuere consectetur est at lobortis. Donec ullamcorper nulla non metus auctor
   fringilla. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Sed posuere consectetur est at lobortis.
@@ -19,9 +19,9 @@ const loremIpsumOptions = _.uniq(`Sed posuere consectetur est at lobortis. Donec
   directives: [CORE_DIRECTIVES, BdSelect, BdOptionTemplate],
   template: `
   <div>
-    <bd-select 
+    <bd-select
       placeholder="Select your favourite fruit"
-      [options]="arrayOfObjects" 
+      [options]="arrayOfObjects"
       (valueChange)="secondSelectValue=$event"
       itemText="$item.name">
       <template #item="$item" bdOptionTemplate>

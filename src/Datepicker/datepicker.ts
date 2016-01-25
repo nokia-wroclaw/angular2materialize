@@ -58,7 +58,7 @@ export class BdDatePicker implements OnInit {
 
   private onDateChange(dateChangeResult) {
     let selectedDate: Date = dateChangeResult.select ? this.extractDate(dateChangeResult.select) : null;
-    this.dateChange.next(selectedDate);
+    this.dateChange.emit(selectedDate);
   }
 
   private extractDate(selectedDate: string) {

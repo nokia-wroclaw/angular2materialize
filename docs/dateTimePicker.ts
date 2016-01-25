@@ -1,5 +1,5 @@
 import {Component, View} from 'angular2/core';
-import {BdDatePicker, BdTimePicker} from 'angular2-materialize';
+import {BdDatePicker, BdTimePicker} from 'angular2materialize';
 
 @Component({
   selector: 'bd-date-time-picker-docs',

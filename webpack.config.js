@@ -37,7 +37,7 @@ module.exports = {
     extensions: ['', '.ts', '.js', '.json'],
     alias: {
       jQuery: 'jquery',
-      'angular2-materialize': 'angular2materialize'
+      'angular2materialize': 'local-angular2materialize'
     }
   },
   module: {
