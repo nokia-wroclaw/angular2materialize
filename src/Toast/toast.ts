@@ -5,7 +5,7 @@ import {Materialize} from '../materialize';
 @Injectable()
 export class BdToast {
 
-  public static open(content: string, duration: number = 4000, isRounded: boolean = false, onClose: Function = _.noop) {
-    Materialize.toast(content, duration, isRounded ? 'rounded' : '', onClose);
+  public static open(content: string, duration: number = 4000, classes: string = '', onClose: Function = _.noop) {
+    Materialize.toast(content, duration, classes, onClose);
   }
 }
