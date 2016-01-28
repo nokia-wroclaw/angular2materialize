@@ -8,6 +8,7 @@ import {BdCardDocs} from './card';
 import {BdIconDocs} from './icon';
 import {BdChipDocs} from './chip';
 import {BdToastDocs} from './toast';
+import {BdAccordionDocs} from './accordion';
 import {BdFloatingButtonDocs} from './floatingButton';
 import {BdDateTimePickerDocs} from './dateTimePicker';
 import {BdInputContainerDocs} from './inputContainer';
@@ -17,7 +18,18 @@ import './styles.scss';
 
 @Component({
   selector: 'bd-docs',
-  directives: [BdButtonDocs, BdListDocs, BdSelectDocs, BdCardDocs, BdDateTimePickerDocs, BdIconDocs, BdFloatingButtonDocs, BdChipDocs, BdInputContainerDocs, BdToastDocs],
+  directives: [
+    BdButtonDocs,
+    BdListDocs,
+    BdSelectDocs,
+    BdCardDocs,
+    BdDateTimePickerDocs,
+    BdIconDocs,
+    BdFloatingButtonDocs,
+    BdChipDocs,
+    BdInputContainerDocs,
+    BdToastDocs,
+    BdAccordionDocs],
   template: `
     <h3 class="header">Button</h3>
     <bd-button-docs></bd-button-docs>
@@ -39,6 +51,8 @@ import './styles.scss';
     <bd-input-container-docs></bd-input-container-docs>
     <h3 class="header">Toast notification</h3>
     <bd-toast-docs></bd-toast-docs>
+    <h3 class="header">Accordion</h3>
+    <bd-accordion-docs></bd-accordion-docs>
   `
 })
 class App {
