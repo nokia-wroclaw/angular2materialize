@@ -26,7 +26,7 @@
     "url": "git@github.com:nokia-wroclaw/angular2materialize.git"
   },
   "scripts": {
-    "build": "npm version patch & npm publish ",
+    "bump": "npm version patch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "version": "0.0.27"
