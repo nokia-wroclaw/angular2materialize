@@ -17,3 +17,4 @@ export {BdTimePicker} from './Timepicker/timepicker';
 export {BdDialog} from './Dialog/dialog';
 export {BdToast} from './Toast/toast';
 export {BdAccordion} from './Accordion/accordion';
+export {BdTooltip} from './Tooltip/tooltip';

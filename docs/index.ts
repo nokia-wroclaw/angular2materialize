@@ -8,6 +8,7 @@ import {BdCardDocs} from './card';
 import {BdIconDocs} from './icon';
 import {BdChipDocs} from './chip';
 import {BdToastDocs} from './toast';
+import {BdTooltipDocs} from './tooltip';
 import {BdAccordionDocs} from './accordion';
 import {BdFloatingButtonDocs} from './floatingButton';
 import {BdDateTimePickerDocs} from './dateTimePicker';
@@ -29,6 +30,7 @@ import './styles.scss';
     BdChipDocs,
     BdInputContainerDocs,
     BdToastDocs,
+    BdTooltipDocs,
     BdAccordionDocs],
   template: `
     <h3 class="header">Button</h3>
@@ -53,6 +55,8 @@ import './styles.scss';
     <bd-toast-docs></bd-toast-docs>
     <h3 class="header">Accordion</h3>
     <bd-accordion-docs></bd-accordion-docs>
+    <h3 class="header">Tooltip</h3>
+    <bd-tooltip-docs></bd-tooltip-docs>
   `
 })
 class App {
