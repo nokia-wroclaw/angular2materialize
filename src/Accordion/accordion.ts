@@ -23,7 +23,6 @@ export class BdAccordion implements AfterViewInit  {
   ngAfterViewInit() {
     let accordionContainer: HTMLElement = this.elementRef.nativeElement.querySelector('.collapsible');
     this.verifyAccordionContent(accordionContainer);
-    $(accordionContainer).collapsible({[this.type]: true});
   }
 
   public static toString(): string {
