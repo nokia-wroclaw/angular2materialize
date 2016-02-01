@@ -1,6 +1,7 @@
 import {Component, AfterViewInit, ElementRef} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
 import * as _ from 'lodash';
+import * as $ from 'jquery';
 
 @Component({
   selector: BdAccordion.toString(),
@@ -20,8 +21,9 @@ export class BdAccordion implements AfterViewInit  {
   constructor(public elementRef: ElementRef) { }
 
   ngAfterViewInit() {
-    let collapsible: HTMLElement = this.elementRef.nativeElement.querySelector('.collapsible');
-    this.verifyAccordionContent(collapsible);
+    let accordionContainer: HTMLElement = this.elementRef.nativeElement.querySelector('.collapsible');
+    this.verifyAccordionContent(accordionContainer);
+    $(accordionContainer).collapsible({[this.type]: true});
   }
 
   public static toString(): string {

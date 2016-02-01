@@ -5,17 +5,17 @@ import {BdAccordion} from 'angular2materialize';
   selector: 'bd-accordion-docs',
   directives: [BdAccordion],
   template: `
-    <bd-accordion [type]="'expandable'">
-      <li class="active">
+    <bd-accordion type="accordion">
+      <li>
         <div class="collapsible-header">
           <i class="material-icons">filter_drama</i>First</div>
         <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
       </li>
-      <li class="active">
-        <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+      <li>
+        <div class="collapsible-header active"><i class="material-icons">place</i>Second</div>
         <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
       </li>
-      <li class="active">
+      <li >
         <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
         <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
       </li>

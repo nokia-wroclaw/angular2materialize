@@ -4,6 +4,7 @@ declare module 'jquery' {
     openModal(params: any): void;
     closeModal(): void;
     tooltip(params: any): void;
+    collapsible(params: any): void;
   }
 
   interface jQuery {
