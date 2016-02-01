@@ -3,6 +3,7 @@ declare module 'jquery' {
     pickadate(params: any): void;
     openModal(params: any): void;
     closeModal(): void;
+    tooltip(params: any): void;
   }
 
   interface jQuery {
