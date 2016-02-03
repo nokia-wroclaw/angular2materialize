@@ -7,8 +7,10 @@ import {BdAccordion} from './accordion';
   selector: BdAccordionGroup.toString(),
   directives: [CORE_DIRECTIVES],
   template: `
-    <div class="accordion-group" [ngClass]="{'active': isActive}" (click)="toggle()">
-      <ng-content select=".collapsible-header"></ng-content>
+    <div class="accordion-group" [ngClass]="{'active': isActive}" >
+      <div (click)="toggle()">
+        <ng-content select=".collapsible-header"></ng-content>
+      </div>
       <ng-content select=".collapsible-body"></ng-content>
     </div>
   `,
