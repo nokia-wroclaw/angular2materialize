@@ -24,7 +24,6 @@ export class BdAccordion {
   }
 
   public addGroup(bdAccordionGroup: BdAccordionGroup) {
-    console.log(bdAccordionGroup);
     this.groups.push(bdAccordionGroup);
   }
 
