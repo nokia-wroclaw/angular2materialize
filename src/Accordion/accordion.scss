@@ -1,0 +1,46 @@
+bd-accordion {
+  bd-accordion-group {
+    .accordion-group {
+      .collapsible-body {
+        height: auto;
+        display: none;
+        animation: accordionOut 0.5s normal ease-in-out both 1;
+      }
+      &.active {
+        .collapsible-body {
+          display: block;
+          height: auto;
+          animation: accordionIn 0.5s normal ease-in-out both 1;
+        }
+      }
+    }
+  }
+}
+
+
+@keyframes accordionIn {
+  0% {
+    height: 0;
+    opacity: 0;
+    transform:scale(0.9) rotateX(-60deg);
+    transform-origin: 50% 0;
+  }
+  100% {
+    height: 100%;
+    opacity: 1;
+    transform:scale(1);
+  }
+}
+
+@keyframes accordionOut {
+  0% {
+    height: 100%;
+    opacity: 1;
+    transform:scale(1);
+  }
+  100% {
+    height: 0;
+    opacity: 0;
+    transform:scale(0.9) rotateX(-60deg);
+  }
+}

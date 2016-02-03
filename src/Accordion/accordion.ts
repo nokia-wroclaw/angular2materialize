@@ -1,37 +1,51 @@
-import {Component, AfterViewInit, ElementRef} from 'angular2/core';
+import {Component} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
-import * as _ from 'lodash';
-import * as $ from 'jquery';
+import './accordion.scss';
+
+import {BdAccordionGroup} from './accordionGroup';
 
 @Component({
   selector: BdAccordion.toString(),
   directives: [CORE_DIRECTIVES],
   template: `
-    <ul class="collapsible" [attr.data-collapsible]="type">
+    <ul class="collapsible" >
       <ng-content></ng-content>
     </ul>
   `,
   inputs: ['type']
 })
-export class BdAccordion implements AfterViewInit  {
-
+export class BdAccordion {
   public static ALLOWED_TYPES: Array<string> = ['expandable', 'accordion'];
   public type: string = 'expandable';
+  private groups: Array<BdAccordionGroup>;
 
-  constructor(public elementRef: ElementRef) { }
+  constructor() {
+    this.groups = [];
+  }
 
-  ngAfterViewInit() {
-    let accordionContainer: HTMLElement = this.elementRef.nativeElement.querySelector('.collapsible');
-    this.verifyAccordionContent(accordionContainer);
+  public addGroup(bdAccordionGroup: BdAccordionGroup) {
+    console.log(bdAccordionGroup);
+    this.groups.push(bdAccordionGroup);
+  }
+
+  public toggle(bdAccordionGroup:BdAccordionGroup) {
+    bdAccordionGroup.isActive = !bdAccordionGroup.isActive;
+    if(this.type === 'accordion' && bdAccordionGroup.isActive) {
+      this.groups
+        .filter((group) => group !== bdAccordionGroup)
+        .forEach((group: BdAccordionGroup) => group.isActive = false);
+    }
+  }
+
+  public collapseAll() {
+    this.groups.forEach((group: BdAccordionGroup) => group.isActive = false);
+  }
+
+  public openAll() {
+    this.groups.forEach((group: BdAccordionGroup) => group.isActive = true);
   }
 
   public static toString(): string {
     return 'bd-accordion';
-  }
-
-  private verifyAccordionContent(collapsible: HTMLElement) {
-    if(!_.every(collapsible.children, { 'tagName': 'LI'})) {
-      throw new Error("only <li> elements are allowed to appear directly under BdAccordion");
-    }
   }
 }

@@ -16,5 +16,5 @@ export {BdInputContainer} from './InputContainer/inputContainer';
 export {BdTimePicker} from './Timepicker/timepicker';
 export {BdDialog} from './Dialog/dialog';
 export {BdToast} from './Toast/toast';
-export {BdAccordion} from './Accordion/accordion';
+export {BdAccordion, BdAccordionGroup} from './Accordion/index';
 export {BdTooltip} from './Tooltip/tooltip';
