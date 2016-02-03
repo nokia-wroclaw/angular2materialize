@@ -5,11 +5,11 @@ import * as $ from 'jquery';
 @Component({
   selector: BdDatePicker.toString(),
   directives: [CORE_DIRECTIVES],
-  inputs: ['date', 'params', 'label'],
+  inputs: ['date', 'params', 'label', 'disabled'],
   outputs: ['dateChange'],
   template: `
     <div class="input-field">
-      <input class="date-input" (click)="open()" [value]='date | date' type='date' />
+      <input class="date-input" [disabled]="disabled" (click)="open()" [value]='date | date' type='date' />
       <label *ngIf="!date" for="date-input" >{{label}}</label>
     </div>`
 })
@@ -19,6 +19,8 @@ export class BdDatePicker implements OnInit {
   public date: Date = null;
 
   public label: String = 'date';
+
+  public disabled: boolean = false;
 
   public dateChange: EventEmitter<Date>;
 
