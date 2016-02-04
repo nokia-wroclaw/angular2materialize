@@ -62,7 +62,8 @@ export class BdDatePicker implements OnInit {
       case 'highlight':
         return;
       case 'select':
-        this.dateChange.emit(this.extractDate(dateChangeResult.select));
+        let selectedDate: Date = dateChangeResult.select ? this.extractDate(dateChangeResult.select) : null;
+        this.dateChange.emit(selectedDate);
         break;
       case 'clear':
         this.dateChange.emit(null);
