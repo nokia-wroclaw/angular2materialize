@@ -27,7 +27,6 @@ export class BdDatePicker implements OnInit {
   public params: Object = null;
 
   public static DEFAULT_PARAMS: Object = {
-    selectMonths: true,
     container: document.body
   };
 
@@ -58,12 +57,19 @@ export class BdDatePicker implements OnInit {
     this.picker.set('select', date);
   }
 
-  private onDateChange(dateChangeResult) {
-    let selectedDate: Date = dateChangeResult.select ? this.extractDate(dateChangeResult.select) : null;
-    this.dateChange.emit(selectedDate);
+  private onDateChange(dateChangeResult: DatePickerChanges) {
+    switch (Object.keys(dateChangeResult)[0]) {
+      case 'highlight':
+        return;
+      case 'select':
+        this.dateChange.emit(this.extractDate(dateChangeResult.select));
+        break;
+      case 'clear':
+        this.dateChange.emit(null);
+    }
   }
 
-  private extractDate(selectedDate: string) {
+  private extractDate(selectedDate: number) {
     let newDate = new Date(selectedDate);
     if (this.date) {
       newDate.setHours(this.date.getHours(), this.date.getMinutes(), this.date.getSeconds(), this.date.getMilliseconds());
@@ -78,4 +84,12 @@ export class BdDatePicker implements OnInit {
   public static toString(): string {
     return 'bd-date-picker';
   }
+}
+
+interface DatePickerChanges {
+  highlight: {
+    pick: number;
+  };
+  select: number;
+  clear: number;
 }
