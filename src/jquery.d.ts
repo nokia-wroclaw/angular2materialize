@@ -5,7 +5,7 @@ declare module 'jquery' {
     closeModal(): void;
     tooltip(params: any): void;
     collapsible(params: any): void;
-    dropdown(params: any): void;
+    dropdown(params?: any): void;
   }
 
   interface jQuery {
