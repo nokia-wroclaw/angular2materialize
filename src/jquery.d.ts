@@ -4,6 +4,7 @@ declare module 'jquery' {
     openModal(params: any): void;
     closeModal(): void;
     materialbox(): void;
+    slider(params: any): void;
     tooltip(params: any): void;
     collapsible(params: any): void;
     dropdown(params?: any): void;
@@ -11,6 +12,10 @@ declare module 'jquery' {
 
   interface jQuery {
     (e : Element) : JQueryElement;
+  }
+
+  interface jQuery {
+    (e : string) : JQueryElement;
   }
 
   var $ : jQuery;
