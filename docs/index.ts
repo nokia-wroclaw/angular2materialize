@@ -7,6 +7,7 @@ import {BdSelectDocs} from './select';
 import {BdCardDocs} from './card';
 import {BdIconDocs} from './icon';
 import {BdChipDocs} from './chip';
+import {BdBoxDocs} from './box';
 import {BdToastDocs} from './toast';
 import {BdTooltipDocs} from './tooltip';
 import {BdAccordionDocs} from './accordion';
@@ -28,6 +29,7 @@ import './styles.scss';
     BdIconDocs,
     BdFloatingButtonDocs,
     BdChipDocs,
+    BdBoxDocs,
     BdInputContainerDocs,
     BdToastDocs,
     BdTooltipDocs,
@@ -57,6 +59,8 @@ import './styles.scss';
     <bd-accordion-docs></bd-accordion-docs>
     <h3 class="header">Tooltip</h3>
     <bd-tooltip-docs></bd-tooltip-docs>
+    <h3 class="header">Box</h3>
+    <bd-box-docs></bd-box-docs>
   `
 })
 class App {

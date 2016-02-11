@@ -3,6 +3,7 @@ declare module 'jquery' {
     pickadate(params: any): void;
     openModal(params: any): void;
     closeModal(): void;
+    materialbox(): void;
     tooltip(params: any): void;
     collapsible(params: any): void;
     dropdown(params?: any): void;
