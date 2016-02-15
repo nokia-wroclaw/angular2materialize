@@ -8,28 +8,28 @@ import * as $ from 'jquery';
   selector: BdTooltip.toString(),
   inputs: ['bdTooltip', 'position', 'delay'],
   host: {
-      '[attr.data-tooltip]': 'bdTooltip',
-      '[attr.data-position]': 'position',
-      '[attr.data-delay]': 'delay',
-      '[class.tooltipped]': '\'true\''
-    }
+    '[attr.data-tooltip]': 'bdTooltip',
+    '[attr.data-position]': 'position',
+    '[attr.data-delay]': 'delay',
+    '[class.tooltipped]': '\'true\''
+  }
 })
 export class BdTooltip implements OnChanges, OnChanges {
   public bdTooltip: string;
   public position: string = 'top';
   public delay: number = 0;
 
-  constructor(private element: ElementRef) {}
+  constructor(private element: ElementRef) { }
 
   ngOnChanges() {
-      $(this.element.nativeElement).tooltip({});
-    }
+    $(this.element.nativeElement).tooltip({});
+  }
 
   ngOnDestroy() {
-      $(this.element.nativeElement).tooltip('remove');
-    }
+    $(this.element.nativeElement).tooltip('remove');
+  }
 
   public static toString(): string {
-      return '[bdTooltip]';
-    }
+    return '[bdTooltip]';
+  }
 }

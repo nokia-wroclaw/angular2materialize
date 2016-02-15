@@ -13,13 +13,13 @@ import {CORE_DIRECTIVES} from 'angular2/common';
 })
 export class BdFloatingButton {
 
-  public static LARGE:string = 'large';
+  public static LARGE: string = 'large';
 
-  public __disabled:boolean = false;
+  public __disabled: boolean = false;
 
-  private __size:string = '';
+  private __size: string = '';
 
-  private __classes:any = {
+  private __classes: any = {
     'btn': true,
     'btn-floating': true,
     'waves-effect': true,
@@ -28,14 +28,14 @@ export class BdFloatingButton {
     'btn-large': this.size === BdFloatingButton.LARGE
   };
 
-  public static toString():string {
+  public static toString(): string {
     return 'bd-floating-button';
   }
 
   constructor() {
   }
 
-  set size(size:string) {
+  set size(size: string) {
     this.__size = size;
     this.classes['btn-large'] = size === BdFloatingButton.LARGE;
   }
@@ -48,7 +48,7 @@ export class BdFloatingButton {
     return this.__classes;
   }
 
-  set disabled(disabled:boolean) {
+  set disabled(disabled: boolean) {
     this.__disabled = disabled;
     this.classes['disabled'] = disabled;
   }

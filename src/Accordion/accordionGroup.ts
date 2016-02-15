@@ -22,7 +22,7 @@ export class BdAccordionGroup implements AfterViewInit {
 
   public isActive: boolean = false;
 
-  constructor(@Host() private accordion: BdAccordion) { }
+  constructor( @Host() private accordion: BdAccordion) { }
 
   ngAfterViewInit() {
     this.accordion.addGroup(this);

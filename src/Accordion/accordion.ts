@@ -27,9 +27,9 @@ export class BdAccordion {
     this.groups.push(bdAccordionGroup);
   }
 
-  public toggle(bdAccordionGroup:BdAccordionGroup) {
+  public toggle(bdAccordionGroup: BdAccordionGroup) {
     bdAccordionGroup.isActive = !bdAccordionGroup.isActive;
-    if(this.type === 'accordion' && bdAccordionGroup.isActive) {
+    if (this.type === 'accordion' && bdAccordionGroup.isActive) {
       this.groups
         .filter((group) => group !== bdAccordionGroup)
         .forEach((group: BdAccordionGroup) => group.isActive = false);

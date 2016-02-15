@@ -12,7 +12,7 @@ if (!g.Hammer) {
 }
 import 'materialize-css/dist/js/materialize';
 import 'materialize-css/bin/materialize.css';
-if(!g.Materialize) {
+if (!g.Materialize) {
   throw new Error('Materialize not loaded properly');
 }
 export var Materialize: any = g.Materialize;
