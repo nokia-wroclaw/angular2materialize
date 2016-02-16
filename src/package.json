@@ -13,7 +13,7 @@
   "main": "index.ts",
   "optionalDependencies": {},
   "peerDependencies": {
-    "angular2": "2.0.0-beta.0",
+    "angular2": "2.0.0-beta.6",
     "hammerjs": "^2.0.4",
     "jquery": "^2.1.4",
     "lodash": "^3.10.1",
