@@ -1,4 +1,4 @@
-import {Directive, ElementRef} from 'angular2/core';
+import {Directive, OnInit, ElementRef} from 'angular2/core';
 import * as $ from 'jquery';
 
 @Directive({
@@ -9,10 +9,12 @@ import * as $ from 'jquery';
     '[class.materialboxed]': '\'true\''
   }
 })
-export class BdBox {
+export class BdBox implements OnInit {
 
-  constructor(elementRef: ElementRef) {
-    $(elementRef.nativeElement).materialbox();
+  constructor(private elementRef: ElementRef) {}
+
+  ngOnInit() {
+    $(this.elementRef.nativeElement).materialbox();
   }
 
   public static toString(): string {
