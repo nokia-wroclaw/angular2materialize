@@ -8,6 +8,7 @@ declare module 'jquery' {
     tooltip(params: any): void;
     collapsible(params: any): void;
     dropdown(params?: any): void;
+    tabs(params?: any): void;
   }
 
   interface jQuery {
