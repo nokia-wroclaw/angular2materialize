@@ -13,7 +13,7 @@
   "author": "BDNE Developers",
   "license": "ISC",
   "dependencies": {
-    "angular2": "2.0.0-beta.7",
+    "angular2": "2.0.0-beta.9",
     "css-loader": "^0.23.0",
     "file-loader": "^0.8.5",
     "hammerjs": "^2.0.4",
