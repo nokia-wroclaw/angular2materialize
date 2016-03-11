@@ -19,3 +19,4 @@ export {BdDialog} from './Dialog/dialog';
 export {BdToast} from './Toast/toast';
 export {BdAccordion, BdAccordionGroup} from './Accordion/index';
 export {BdTooltip} from './Tooltip/tooltip';
+export {BdTags} from './Tags/tags';

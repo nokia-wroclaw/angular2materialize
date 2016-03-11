@@ -7,6 +7,9 @@
   "installed": {
     "lodash/lodash.d.ts": {
       "commit": "78ba6e41543e5ababbd1dda19797601be3c1f304"
+    },
+    "es6-shim/es6-shim.d.ts": {
+      "commit": "552fe5d3e45ef9c8ecd3eda2b6a24d2546c438f4"
     }
   }
 }
