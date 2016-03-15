@@ -1,3 +1,5 @@
+/// <reference path="../typings/custom.d.ts" />
+
 import {Component} from 'angular2/core';
 import {bootstrap, ELEMENT_PROBE_PROVIDERS} from 'angular2/platform/browser';
 
@@ -14,6 +16,7 @@ import {BdAccordionDocs} from './accordion';
 import {BdFloatingButtonDocs} from './floatingButton';
 import {BdDateTimePickerDocs} from './dateTimePicker';
 import {BdInputContainerDocs} from './inputContainer';
+import {BdTagsDocs} from './tags';
 
 import './index.html';
 import './styles.scss';
@@ -33,7 +36,9 @@ import './styles.scss';
     BdInputContainerDocs,
     BdToastDocs,
     BdTooltipDocs,
-    BdAccordionDocs],
+    BdAccordionDocs,
+    BdTagsDocs
+  ],
   template: `
     <h3 class="header">Button</h3>
     <bd-button-docs></bd-button-docs>
@@ -61,6 +66,8 @@ import './styles.scss';
     <bd-tooltip-docs></bd-tooltip-docs>
     <h3 class="header">Box</h3>
     <bd-box-docs></bd-box-docs>
+    <h3 class="header">Tags</h3>
+    <bd-tags-docs></bd-tags-docs>
   `
 })
 class App {
