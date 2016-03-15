@@ -9,7 +9,7 @@ const KEY_BACKSPACE = 8;
 @Component({
   selector: 'bd-tags',
   directives: [BdChip, BdInputContainer],
-  inputs: ['tags'],
+  inputs: ['tags', 'label'],
   outputs: ['tagsChange'],
   template: `
   <div>
