@@ -1,4 +1,4 @@
-import {Component, View, ElementRef, OnInit} from 'angular2/core';
+import {Component, View, ElementRef, OnInit, EventEmitter} from 'angular2/core';
 import {BdChip, BdInputContainer} from 'angular2materialize';
 
 const KEY_LEFT = 37;
@@ -10,6 +10,7 @@ const KEY_BACKSPACE = 8;
   selector: 'bd-tags',
   directives: [BdChip, BdInputContainer],
   inputs: ['tags'],
+  outputs: ['tagsChange'],
   template: `
   <div>
     <${BdChip} *ngFor="#tag of tags | slice: 0: pointer + 1; #i = index">
@@ -35,6 +36,7 @@ export class BdTags implements OnInit {
   private current:string = '';
   private pointer:number;
   private elementRef:ElementRef;
+  private tagsChange: EventEmitter<string[]> = new EventEmitter();
 
   constructor(elementRef:ElementRef) {
     this.elementRef = elementRef;
@@ -70,7 +72,7 @@ export class BdTags implements OnInit {
 
   private onRemove(index: number, pointer: number): void {
     const tagIndex = index + pointer;
-    this.tags = this.removeFromArrayBeforeIndex(this.tags, tagIndex);
+    this.setTags(this.removeFromArrayBeforeIndex(this.tags, tagIndex));
   }
 
   private addTag(tag:string): void {
@@ -79,7 +81,7 @@ export class BdTags implements OnInit {
       return;
     }
 
-    this.tags = this.addToArrayAfterIndex(this.tags, this.pointer, tag.trim());
+    this.setTags(this.addToArrayAfterIndex(this.tags, this.pointer, tag.trim()));
     this.current = '';
     this.changePointer(this.pointer + 1);
   }
@@ -89,7 +91,7 @@ export class BdTags implements OnInit {
       return;
     }
 
-    this.tags = this.removeFromArrayBeforeIndex(this.tags, this.pointer);
+    this.setTags(this.removeFromArrayBeforeIndex(this.tags, this.pointer));
     this.changePointer(this.pointer - 1);
   }
 
@@ -117,5 +119,10 @@ export class BdTags implements OnInit {
       this.tags.length - 1,
       Math.max(-1, index)
     );
+  }
+
+  private setTags(tags: string[]) {
+    this.tags = tags;
+    this.tagsChange.emit(tags);
   }
 }

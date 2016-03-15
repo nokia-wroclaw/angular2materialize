@@ -6,7 +6,7 @@ import {BdTags} from 'angular2materialize';
   directives: [BdTags],
   template: `
   <div>
-    <bd-tags [tags]="tags"></bd-tags>
+    <bd-tags [(tags)]="tags"></bd-tags>
   </div>
   `
 })
