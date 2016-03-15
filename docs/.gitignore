@@ -1,7 +1,0 @@
-node_modules
-*.swp
-npm-debug.log
-.idea
-*.iml
-typings/*
-!typings/custom.d.ts
