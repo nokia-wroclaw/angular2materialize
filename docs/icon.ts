@@ -5,7 +5,10 @@ import {BdIcon} from 'angular2materialize';
   selector: 'bd-icon-docs',
   directives: [BdIcon],
   template: `
-    <bd-icon>add</bd-icon>
+    <bd-icon size="tiny">add</bd-icon>
+    <bd-icon size="small">add</bd-icon>
+    <bd-icon size="medium">add</bd-icon>
+    <bd-icon size="large">add</bd-icon>
   `
 })
 export class BdIconDocs {
