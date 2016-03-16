@@ -1,4 +1,5 @@
 import {Component, View, ElementRef, OnInit, EventEmitter} from 'angular2/core';
+import {NgClass} from 'angular2/common';
 import {BdChip, BdInputContainer} from 'angular2materialize';
 
 const KEY_LEFT = 37;
@@ -8,8 +9,8 @@ const KEY_BACKSPACE = 8;
 
 @Component({
   selector: 'bd-tags',
-  directives: [BdChip, BdInputContainer],
-  inputs: ['tags', 'label'],
+  directives: [BdChip, BdInputContainer, NgClass],
+  inputs: ['tags', 'label', 'errorMessage'],
   outputs: ['tagsChange'],
   template: `
   <div>
@@ -19,8 +20,8 @@ const KEY_BACKSPACE = 8;
     </${BdChip}>
 
     <bd-input-container>
-      <label for="materialize_tags_input">{{label}}</label>
-      <input type="text" id="materialize_tags_input" (keydown)="onKey($event)" (blur)="onBlur()" [(ngModel)]="current">
+      <input type="text" id="materialize_tags_input" (keydown)="onKey($event)" (blur)="onBlur()" [(ngModel)]="current" [class.invalid]="wasBlur && errorMessage">
+      <label for="materialize_tags_input" [attr.data-error]="errorMessage" [class.invalid]="wasBlur && errorMessage">{{label}}</label>
     </bd-input-container>
 
     <${BdChip} *ngFor="#tag of tags | slice: pointer+1: tags.length; #i = index">
@@ -34,9 +35,11 @@ export class BdTags implements OnInit {
   private tags:string[];
   private label:string;
   private current:string = '';
+  private errorMessage = '';
   private pointer:number;
   private elementRef:ElementRef;
   private tagsChange: EventEmitter<string[]> = new EventEmitter();
+  private wasBlur: boolean = false;
 
   constructor(elementRef:ElementRef) {
     this.elementRef = elementRef;
@@ -68,6 +71,7 @@ export class BdTags implements OnInit {
 
   private onBlur(): void {
     this.addTag(this.current);
+    this.wasBlur = true;
   }
 
   private onRemove(index: number, pointer: number): void {

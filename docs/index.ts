@@ -64,10 +64,10 @@ import './styles.scss';
     <bd-accordion-docs></bd-accordion-docs>
     <h3 class="header">Tooltip</h3>
     <bd-tooltip-docs></bd-tooltip-docs>
-    <h3 class="header">Box</h3>
-    <bd-box-docs></bd-box-docs>
     <h3 class="header">Tags</h3>
     <bd-tags-docs></bd-tags-docs>
+    <h3 class="header">Box</h3>
+    <bd-box-docs></bd-box-docs>
   `
 })
 class App {
