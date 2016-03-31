@@ -64,8 +64,7 @@ export class BdSelect implements AfterContentInit, OnChanges {
   public isPopupOpen: boolean;
   public selectedOptionText: string;
   public value: any;
-  public valueChange: EventEmitter<any>;
-
+  public valueChange: EventEmitter<any> = new EventEmitter<any>();
   public selectedOption: any;
   private selectedOptionIndex: number;
 
@@ -78,8 +77,6 @@ export class BdSelect implements AfterContentInit, OnChanges {
   private _searchPhrase: string;
 
   constructor() {
-    this.valueChange = new EventEmitter();
-
     this._searchPhrase = '';
     this.placeholder = '';
     this.isPopupOpen = false;

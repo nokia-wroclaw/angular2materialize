@@ -39,7 +39,7 @@ export class BdTags implements OnInit {
   private isInvalid = false;
   private pointer:number;
   private elementRef:ElementRef;
-  private tagsChange: EventEmitter<string[]> = new EventEmitter();
+  private tagsChange: EventEmitter<string[]> = new EventEmitter<string[]>();
 
   constructor(elementRef:ElementRef) {
     this.elementRef = elementRef;

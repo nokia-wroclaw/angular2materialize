@@ -43,7 +43,7 @@ const CONTAINER_CAPACITY = CONTAINER_HEIGHT / ITEM_HEIGHT;
 })
 export class BdVRepeat implements AfterContentInit, OnChanges {
   @ContentChild(BdItemTemplate) itemTemplate: BdItemTemplate;
-  public itemClicked: EventEmitter<any>;
+  public itemClicked: EventEmitter<any> = new EventEmitter<any>();
 
   public scrollerHeight: number;
   public marginTop: number;
@@ -62,7 +62,6 @@ export class BdVRepeat implements AfterContentInit, OnChanges {
   private lastItem: number;
 
   constructor() {
-    this.itemClicked = new EventEmitter();
     this.firstItem = 0;
     this.lastItem = 0;
     this.marginTop = 0;

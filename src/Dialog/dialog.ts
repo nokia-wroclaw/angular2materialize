@@ -29,7 +29,7 @@ export class BdDialog implements OnChanges, OnInit {
   public withFooter: boolean;
   public dismissible: boolean;
   public fixedFooter: boolean;
-  public isOpenChange: EventEmitter<boolean>;
+  public isOpenChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   private element: Element;
 
@@ -38,9 +38,7 @@ export class BdDialog implements OnChanges, OnInit {
     this.isOpen = false;
     this.withFooter = false;
     this.fixedFooter = false;
-
     this.element = elementRef.nativeElement;
-    this.isOpenChange = new EventEmitter();
   }
 
   ngOnChanges(changes: { [key: string]: SimpleChange }) {
