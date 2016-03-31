@@ -62,7 +62,7 @@ export class BdVRepeat implements AfterContentInit, OnChanges {
   private lastItem: number;
 
   constructor() {
-    this.itemClicked = new EventEmitter(false);
+    this.itemClicked = new EventEmitter();
     this.firstItem = 0;
     this.lastItem = 0;
     this.marginTop = 0;

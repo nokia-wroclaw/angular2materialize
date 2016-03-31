@@ -3,6 +3,9 @@ import {OnChanges, SimpleChange} from 'angular2/core';
 import {ContentChild, AfterContentInit} from 'angular2/core';
 import {TemplateRef} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
+
+import * as _ from 'lodash';
+
 import {FocusOnShow} from './focusOnShow';
 import {BdVRepeat, BdItemTemplate} from '../VRepeat/vrepeat';
 
@@ -16,10 +19,10 @@ const DEFAULT_ITEM_TEXT_FUNCTION = new Function('$item', 'return $item;');
 @Component({
   selector: 'bd-select',
   inputs: ['value', 'options', 'itemText', 'placeholder'],
-  outputs: ['valueChange', 'blur'],
+  outputs: ['valueChange'],
   directives: [CORE_DIRECTIVES, BdVRepeat, BdItemTemplate, FocusOnShow],
   template: `
-    <div *ngIf="isVisible" class="select__mainContainer select-wrapper">
+    <div class="select__mainContainer select-wrapper">
       <span class="caret">▼</span>
       <input
         type="text"
@@ -33,7 +36,6 @@ const DEFAULT_ITEM_TEXT_FUNCTION = new Function('$item', 'return $item;');
         *ngIf="isPopupOpen"
         class="select__popup">
         <input
-          (blur)="blur.emit(null)"
           type="text"
           class="select__popup__input"
           placeholder="Type to search"
@@ -60,11 +62,9 @@ export class BdSelect implements AfterContentInit, OnChanges {
   public visibleOptions: Array<any>;
 
   public isPopupOpen: boolean;
-  public isVisible: boolean;
   public selectedOptionText: string;
   public value: any;
   public valueChange: EventEmitter<any>;
-  public blur: EventEmitter<any>;
 
   public selectedOption: any;
   private selectedOptionIndex: number;
@@ -79,12 +79,10 @@ export class BdSelect implements AfterContentInit, OnChanges {
 
   constructor() {
     this.valueChange = new EventEmitter();
-    this.blur = new EventEmitter();
 
     this._searchPhrase = '';
     this.placeholder = '';
     this.isPopupOpen = false;
-    this.isVisible = true;
     this.visibleOptions = [];
     this.selectedOptionText = '';
     this.selectedOptionIndex = 0;

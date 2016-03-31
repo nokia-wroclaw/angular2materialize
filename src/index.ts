@@ -20,6 +20,3 @@ export {BdToast} from './Toast/toast';
 export {BdAccordion, BdAccordionGroup} from './Accordion/index';
 export {BdTooltip} from './Tooltip/tooltip';
 export {BdTags} from './Tags/tags';
-export {BdMultiSelect} from './MultiSelect/multiSelect';
-export {BdMultiSelectOptionTemplate} from './MultiSelect/multiSelectOptionTemplate';
-export {BdMultiSelectChipTemplate} from './MultiSelect/multiSelectChipTemplate';
