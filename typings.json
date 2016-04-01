@@ -1,6 +1,8 @@
 {
+  "dependencies": {
+    "lodash": "registry:npm/lodash#4.0.0+20160305082308"
+  },
   "ambientDependencies": {
-    "lodash": "github:DefinitelyTyped/DefinitelyTyped/lodash/lodash.d.ts#78ba6e41543e5ababbd1dda19797601be3c1f304",
-    "es6-shim": "github:DefinitelyTyped/DefinitelyTyped/es6-shim/es6-shim.d.ts#552fe5d3e45ef9c8ecd3eda2b6a24d2546c438f4"
+    "es6-shim": "registry:dt/es6-shim#0.31.2+20160317120654"
   }
 }
