@@ -1,4 +1,4 @@
-import {Component, View, ElementRef, OnInit, EventEmitter} from 'angular2/core';
+import {Component, ElementRef, OnInit, EventEmitter} from 'angular2/core';
 import {NgClass} from 'angular2/common';
 import {BdChip, BdInputContainer} from 'angular2materialize';
 
