@@ -9,6 +9,8 @@ declare module 'jquery' {
     collapsible(params: any): void;
     dropdown(params?: any): void;
     tabs(params?: any): void;
+    on(event: string, selector?: string, handler?: any): void;
+    remove(): void;
   }
 
   interface jQuery {
