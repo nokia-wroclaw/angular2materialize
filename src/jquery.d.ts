@@ -11,6 +11,7 @@ declare module 'jquery' {
     tabs(params?: any): void;
     on(event: string, selector?: string, handler?: any): void;
     remove(): void;
+    parent(): JQueryElement;
   }
 
   interface jQuery {
