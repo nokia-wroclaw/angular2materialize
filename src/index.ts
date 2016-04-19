@@ -5,6 +5,7 @@ export {BdButton} from './Button/button';
 export {BdFloatingButton} from './FloatingButton/floatingButton';
 export {BdIcon} from './Icon/icon';
 export {BdChip} from './Chip/chip';
+export {BdChips} from './Chips/chips';
 export {BdBox} from './Box/box';
 
 export {BdCard, BdCardAction, BdCardContent, BdCardImage, BdCardTitle} from './Card/index';
