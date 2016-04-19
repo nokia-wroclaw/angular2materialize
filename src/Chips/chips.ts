@@ -17,7 +17,7 @@ import {BdChip, BdIcon} from 'angular2materialize';
 })
 export class BdChips {
 
-  public onRemove: EventEmitter<number> = new EventEmitter();
+  public onRemove: EventEmitter<number> = new EventEmitter<number>();
 
   public static toString(): string {
     return 'bd-chips';
