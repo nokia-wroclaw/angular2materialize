@@ -1,0 +1,30 @@
+
+bd-layout {
+  position: relative;
+  display: block;
+  position: relative;
+  width: calc(100% - 10px);
+  overflow: hidden;
+  padding: 5px;
+  margin: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &[layout="row"] > * {
+    flex-grow: 1;
+  }
+
+  &[layout="column"] {
+    flex-direction: column;
+    justify-content: center;
+    > {
+      margin: 5px auto;
+    }
+    &[layout-align="stretch"] > * {
+      width: calc(100% - 10px);
+    }
+
+  }
+
+}

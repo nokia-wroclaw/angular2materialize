@@ -17,6 +17,8 @@ import {BdFloatingButtonDocs} from './floatingButton';
 import {BdDateTimePickerDocs} from './dateTimePicker';
 import {BdInputContainerDocs} from './inputContainer';
 import {BdTagsDocs} from './tags';
+import {BdLayoutDocs} from './layout';
+import {BdSideNavDocs} from './sidenav';
 
 import './index.html';
 import './styles.scss';
@@ -37,9 +39,15 @@ import './styles.scss';
     BdToastDocs,
     BdTooltipDocs,
     BdAccordionDocs,
-    BdTagsDocs
+    BdTagsDocs,
+    BdLayoutDocs,
+    BdSideNavDocs
   ],
   template: `
+    <h3 class="header">SideNav</h3>
+    <bd-side-nav-docs></bd-side-nav-docs>
+    <h3 class="header">Layout</h3>
+    <bd-layout-docs></bd-layout-docs>
     <h3 class="header">Button</h3>
     <bd-button-docs></bd-button-docs>
     <h3 class="header">List</h3>

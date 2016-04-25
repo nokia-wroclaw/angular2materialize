@@ -1,0 +1,63 @@
+bd-side-nav {
+  &[docked]{
+    position: relative;
+  }
+
+  transition: 1s cubic-bezier(0.74, 0.02, 0, 1.01) transform;
+  border: 1px solid gray;
+  background: #2196F3;
+  top: 0px;
+  visibility: hidden;
+
+
+  &:not([docked]){
+    position: absolute;
+    left: 0px;
+    right: auto;
+    overflow: hidden;
+  }
+
+
+  &[sidenav-left] {
+    &:not([docked]){
+      position: absolute;
+      left: 0px;
+      right: auto;
+      box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+    }
+
+    transform: translateX(-100%);
+    width: 0px;
+    &.toggled {
+      visibility: visible;
+      transform: translateX(0%);
+      width: auto;
+    }
+  }
+
+  &[sidenav-right] {
+    &:not([docked]){
+      position: absolute;
+      left: auto;
+      right: 0px;
+      box-shadow: -3px 3px 3px rgba(0,0,0,0.3);
+    }
+    transform: translateX(100%);
+    width: 0px;
+    &.toggled {
+      visibility: visible;
+      transform: translateX(0%);
+      width: auto;
+    }
+
+  }
+
+  &[isOpen] {
+    .bd-side-nav {
+      visibility: visible;
+      transform: translateX(0%);
+      width: auto;
+    }
+  }
+
+}

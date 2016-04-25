@@ -23,3 +23,5 @@ export {BdTags} from './Tags/tags';
 export {BdMultiSelect} from './MultiSelect/multiSelect';
 export {BdMultiSelectOptionTemplate} from './MultiSelect/multiSelectOptionTemplate';
 export {BdMultiSelectChipTemplate} from './MultiSelect/multiSelectChipTemplate';
+export {BdLayout} from './Layout/layout';
+export {BdSideNav} from './SideNav/SideNav';
