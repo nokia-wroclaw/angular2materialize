@@ -17,6 +17,7 @@ import {BdFloatingButtonDocs} from './floatingButton';
 import {BdDateTimePickerDocs} from './dateTimePicker';
 import {BdInputContainerDocs} from './inputContainer';
 import {BdTagsDocs} from './tags';
+import {BdChipsDocs} from './chips';
 import {BdLayoutDocs} from './layout';
 import {BdSideNavDocs} from './sidenav';
 
@@ -40,6 +41,7 @@ import './styles.scss';
     BdTooltipDocs,
     BdAccordionDocs,
     BdTagsDocs,
+    BdChipsDocs,
     BdLayoutDocs,
     BdSideNavDocs
   ],
@@ -60,6 +62,8 @@ import './styles.scss';
     <bd-icon-docs></bd-icon-docs>
     <h3 class="header">Chip</h3>
     <bd-chip-docs></bd-chip-docs>
+    <h3 class="header">Chips</h3>
+    <bd-chips-docs></bd-chips-docs>
     <h3 class="header">Floating button</h3>
     <bd-floating-button-docs></bd-floating-button-docs>
     <h3 class="header">Date time</h3>

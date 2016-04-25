@@ -1,30 +1,31 @@
 import {Component, OnInit, ElementRef} from 'angular2/core';
-import {CORE_DIRECTIVES} from 'angular2/common';
 import * as $ from 'jquery';
 
 @Component({
   selector: BdChip.toString(),
-  directives: [CORE_DIRECTIVES],
   template: `
     <div class="chip">
       <ng-content></ng-content>
     </div>
   `,
-
+  inputs: ['removeChipOnClick']
 })
 export class BdChip implements OnInit {
+
+  public removeChipOnClick: boolean = true;
 
   public static toString(): string {
     return 'bd-chip';
   }
 
-  constructor(private element: ElementRef) {
-  }
+  constructor(private element: ElementRef) {}
 
-  ngOnInit() {
+  public ngOnInit() {
     $(this.element.nativeElement).on('click', '.chip .material-icons', (e) => {
+      if (this.removeChipOnClick) {
+        $(e.currentTarget).parent().parent().remove();
+      }
       e.preventDefault();
-      $(e.currentTarget).parent().parent().remove();
       return false;
     });
   }
