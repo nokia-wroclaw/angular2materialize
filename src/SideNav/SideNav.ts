@@ -10,7 +10,6 @@ import './SideNav.scss';
   directives: [COMMON_DIRECTIVES]
 })
 export class BdSideNav implements OnInit{
-  private toggled : boolean = true;
   @Input() isOpen : boolean = false;
   private __state : any = {
     toggled : true,
@@ -28,6 +27,10 @@ export class BdSideNav implements OnInit{
     this.__state.toggled = state || !this.__state.toggled;
     let toggled = this.__state.toggled ? 'toggled' : '';
     this.element.nativeElement.setAttribute('class',toggled);
+  }
+
+  get toggled(){
+    return this.__state.toggled;
   }
 }
 
