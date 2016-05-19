@@ -1,5 +1,5 @@
-import {Component, Input} from 'angular2/core';
-import {COMMON_DIRECTIVES} from 'angular2/common';
+import {Component, Input} from '@angular/core';
+import {COMMON_DIRECTIVES} from '@angular/common';
 import * as MaterializeDirectives from 'angular2materialize'
 import './layout.scss';
 

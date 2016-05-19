@@ -1,7 +1,8 @@
 /// <reference path="../typings/custom.d.ts" />
 
-import {Component} from 'angular2/core';
-import {bootstrap, ELEMENT_PROBE_PROVIDERS} from 'angular2/platform/browser';
+import {Component} from '@angular/core';
+import {ELEMENT_PROBE_PROVIDERS} from '@angular/platform-browser';
+import {bootstrap}    from '@angular/platform-browser-dynamic';
 
 import {BdButtonDocs} from './button';
 import {BdListDocs} from './list';
@@ -29,7 +30,7 @@ import './styles.scss';
   directives: [
     BdButtonDocs,
     BdListDocs,
-    BdSelectDocs,
+    //BdSelectDocs,
     BdCardDocs,
     BdDateTimePickerDocs,
     BdIconDocs,
@@ -54,8 +55,8 @@ import './styles.scss';
     <bd-button-docs></bd-button-docs>
     <h3 class="header">List</h3>
     <bd-list-docs></bd-list-docs>
-    <h3 class="header">Select 1½</h3>
-    <bd-select-docs></bd-select-docs>
+    <!--<h3 class="header">Select 1½</h3>-->
+    <!--<bd-select-docs></bd-select-docs>-->
     <h3 class="header">Card</h3>
     <bd-card-docs></bd-card-docs>
     <h3 class="header">Icon</h3>

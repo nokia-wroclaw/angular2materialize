@@ -1,8 +1,8 @@
-import {Component, EventEmitter} from 'angular2/core';
-import {OnChanges, SimpleChange} from 'angular2/core';
-import {ContentChild, AfterContentInit} from 'angular2/core';
-import {TemplateRef} from 'angular2/core';
-import {CORE_DIRECTIVES} from 'angular2/common';
+import {Component, EventEmitter} from '@angular/core';
+import {OnChanges, SimpleChange} from '@angular/core';
+import {ContentChild, AfterContentInit} from '@angular/core';
+import {TemplateRef} from '@angular/core';
+import {CORE_DIRECTIVES} from '@angular/common';
 import {FocusOnShow} from './focusOnShow';
 import {BdVRepeat, BdItemTemplate} from '../VRepeat/vrepeat';
 
@@ -69,7 +69,7 @@ export class BdSelect implements AfterContentInit, OnChanges {
   public selectedOption: any;
   private selectedOptionIndex: number;
 
-  public optionTemplate: TemplateRef;
+  public optionTemplate: TemplateRef<any>;
   @ContentChild(BdOptionTemplate) optionTemplateChild: BdOptionTemplate;
 
   public itemText: string;

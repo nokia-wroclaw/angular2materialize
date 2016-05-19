@@ -1,6 +1,6 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {BdSideNav, BdLayout, BdButton} from 'angular2materialize';
-import {COMMON_DIRECTIVES} from 'angular2/common';
+import {COMMON_DIRECTIVES} from '@angular/common';
 
 @Component({
   selector: 'bd-side-nav-docs',

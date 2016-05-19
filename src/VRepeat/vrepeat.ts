@@ -1,7 +1,7 @@
-import {Component, EventEmitter, ContentChild} from 'angular2/core';
-import {AfterContentInit, OnChanges} from 'angular2/core';
-import {TemplateRef, SimpleChange} from 'angular2/core';
-import {CORE_DIRECTIVES} from 'angular2/common';
+import {Component, EventEmitter, ContentChild} from '@angular/core';
+import {AfterContentInit, OnChanges} from '@angular/core';
+import {TemplateRef, SimpleChange} from '@angular/core';
+import {CORE_DIRECTIVES} from '@angular/common';
 
 
 import {BdItem} from './item';
@@ -55,8 +55,8 @@ export class BdVRepeat implements AfterContentInit, OnChanges {
   public visibleItems: Array<any>;
   public selectedItem: any;
 
-  public template: TemplateRef;
-  public outerTemplate: TemplateRef;
+  public template: TemplateRef<any>;
+  public outerTemplate: TemplateRef<any>;
 
   private firstItem: number;
   private lastItem: number;

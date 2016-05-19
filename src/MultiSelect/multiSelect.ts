@@ -1,6 +1,6 @@
-import {Component, EventEmitter, TemplateRef, ContentChild, ViewChild} from 'angular2/core';
-import {OnChanges, SimpleChange, ChangeDetectorRef, AfterViewInit} from 'angular2/core';
-import {CORE_DIRECTIVES} from 'angular2/common';
+import {Component, EventEmitter, TemplateRef, ContentChild, ViewChild} from '@angular/core';
+import {OnChanges, SimpleChange, ChangeDetectorRef, AfterViewInit} from '@angular/core';
+import {CORE_DIRECTIVES} from '@angular/common';
 
 import * as _ from 'lodash';
 
@@ -45,8 +45,8 @@ export class BdMultiSelect implements OnChanges, AfterViewInit {
   public itemKey: string;
   public itemText: string;
   public placeholder: string;
-  public template: TemplateRef;
-  public chipTemplate: TemplateRef;
+  public template: TemplateRef<any>;
+  public chipTemplate: TemplateRef<any>;
   private initialOptions: Array<any>;
 
   @ContentChild(BdMultiSelectOptionTemplate) private bdMultiSelectOptionTemplate: BdMultiSelectOptionTemplate;

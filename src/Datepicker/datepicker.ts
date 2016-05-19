@@ -1,5 +1,5 @@
-import {Component, OnInit, ElementRef, EventEmitter} from 'angular2/core';
-import {CORE_DIRECTIVES} from 'angular2/common';
+import {Component, OnInit, ElementRef, EventEmitter} from '@angular/core';
+import {CORE_DIRECTIVES} from '@angular/common';
 import * as $ from 'jquery';
 
 @Component({

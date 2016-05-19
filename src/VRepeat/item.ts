@@ -1,7 +1,7 @@
-import {Component} from 'angular2/core';
-import {AppViewManager, ViewChild} from 'angular2/core';
-import {AfterViewInit, ChangeDetectorRef} from 'angular2/core';
-import {TemplateRef, ElementRef} from 'angular2/core';
+import {Component} from '@angular/core';
+import {ViewChild, ViewContainerRef} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef} from '@angular/core';
+import {TemplateRef, ElementRef} from '@angular/core';
 
 @Component({
   selector: 'bd-v-repeat #scroller>li',
@@ -11,13 +11,15 @@ import {TemplateRef, ElementRef} from 'angular2/core';
 export class BdItem implements AfterViewInit {
   public item: any;
   @ViewChild('container') container: ElementRef;
-  private template: TemplateRef;
+  private template: TemplateRef<any>;
 
-  constructor(private appViewManager: AppViewManager, private changeDetector: ChangeDetectorRef) { }
+  constructor(private appViewManager: ViewContainerRef, private changeDetector: ChangeDetectorRef) { }
 
   ngAfterViewInit() {
-    let view = this.appViewManager.createEmbeddedViewInContainer(this.container, 0, this.template);
-    view.setLocal('$item', this.item);
-    this.changeDetector.detectChanges();
+    // TODO: breaking change after bump to angular rc1
+
+    // let view = this.appViewManager.createEmbeddedView(this.template, this.container, 0);
+    // view.setLocal('$item', this.item);
+    // this.changeDetector.detectChanges();
   }
 }

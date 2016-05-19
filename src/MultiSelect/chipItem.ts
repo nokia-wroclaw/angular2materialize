@@ -1,6 +1,6 @@
-import {Component} from 'angular2/core';
-import {AppViewManager, AfterViewInit} from 'angular2/core';
-import {TemplateRef, ElementRef} from 'angular2/core';
+import {Component} from '@angular/core';
+import {ViewContainerRef, AfterViewInit} from '@angular/core';
+import {TemplateRef, ElementRef} from '@angular/core';
 
 @Component({
   selector: '[chipItem]',
@@ -9,14 +9,16 @@ import {TemplateRef, ElementRef} from 'angular2/core';
 })
 export class BdChipItem implements AfterViewInit {
   public chipItem: any;
-  private template: TemplateRef;
+  private template: TemplateRef<any>;
 
-  constructor(private elementRef: ElementRef, private appViewManager: AppViewManager) { }
+  constructor(private elementRef: ElementRef, private appViewManager: ViewContainerRef) { }
 
   ngAfterViewInit() {
-    setTimeout(() => {
-      let view = this.appViewManager.createEmbeddedViewInContainer(this.elementRef, 0, this.template);
-      view.setLocal('$item', this.chipItem);
-    });
+    // TODO: breaking change after bump to angular rc1
+
+    // setTimeout(() => {
+    //   let view = this.appViewManager.createEmbeddedViewInContainer(this.elementRef, 0, this.template);
+    //   view.setLocal('$item', this.chipItem);
+    // });
   }
 }

@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {BdCard, BdCardAction, BdCardContent, BdCardImage, BdCardTitle} from 'angular2materialize';
 
 @Component({

@@ -1,6 +1,6 @@
-import {Directive, ElementRef} from 'angular2/core';
-import {OnChanges, OnDestroy} from 'angular2/core';
-import {CORE_DIRECTIVES} from 'angular2/common';
+import {Directive, ElementRef} from '@angular/core';
+import {OnChanges, OnDestroy} from '@angular/core';
+import {CORE_DIRECTIVES} from '@angular/common';
 import * as _ from 'lodash';
 import * as $ from 'jquery';
 

@@ -15,13 +15,13 @@ module.exports = {
   },
   entry: {
     'angular2': [
-      'angular2/bundles/angular2-polyfills.js',
       'rxjs',
-      'angular2/common',
-      'angular2/core',
-      'angular2/platform/browser',
-      'angular2/router',
-      'angular2/http'
+      'reflect-metadata',
+      'zone.js',
+      '@angular/common',
+      '@angular/core',
+      '@angular/platform-browser',
+      '@angular/platform-browser-dynamic'
     ],
     'app': [
       './docs/index.ts'

@@ -1,4 +1,4 @@
-import {Component, View, ViewChild, AfterViewInit} from 'angular2/core';
+import {Component, ViewChild, AfterViewInit} from '@angular/core';
 import {BdAccordion, BdAccordionGroup, BdButton} from 'angular2materialize';
 
 @Component({

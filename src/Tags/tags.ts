@@ -1,5 +1,5 @@
-import {Component, ElementRef, OnInit, EventEmitter} from 'angular2/core';
-import {NgClass} from 'angular2/common';
+import {Component, ElementRef, OnInit, EventEmitter} from '@angular/core';
+import {NgClass} from '@angular/common';
 import {BdChip, BdInputContainer} from 'angular2materialize';
 
 const KEY_LEFT = 37;

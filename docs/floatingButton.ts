@@ -1,4 +1,4 @@
-import {Component, View} from 'angular2/core';
+import {Component} from '@angular/core';
 import {BdFloatingButton, BdIcon} from 'angular2materialize';
 
 @Component({
