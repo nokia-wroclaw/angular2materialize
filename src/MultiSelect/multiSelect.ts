@@ -10,13 +10,13 @@ import {BdChipItem} from './chipItem';
 import {BdChip} from '../Chip/chip';
 import {BdMultiSelectOptionTemplate} from './multiSelectOptionTemplate';
 import {BdMultiSelectChipTemplate} from './multiSelectChipTemplate';
-import './multiSelect.scss';
 
 @Component({
   selector: 'bd-multi-select',
   inputs: ['value', 'options', 'itemKey', 'placeholder', 'selected'],
   outputs: ['selectedChange'],
   directives: [CORE_DIRECTIVES, BdSelect, BdChip, BdChipItem, BdIcon, BdMultiSelectOptionTemplate],
+  styles: [require('./multiSelect.scss')],
   template: `
     <div class="multiple-select-container hover-card">
       <fieldset>

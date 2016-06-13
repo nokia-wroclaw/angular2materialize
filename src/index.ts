@@ -1,5 +1,5 @@
 import './materialize';
-import './materialize-icons.scss';
+require('style!./materialize-icons.scss');
 
 export {BdButton} from './Button/button';
 export {BdFloatingButton} from './FloatingButton/floatingButton';

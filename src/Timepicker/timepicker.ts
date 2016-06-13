@@ -1,7 +1,6 @@
 import {Component, OnInit, ElementRef, EventEmitter} from '@angular/core';
 import {CORE_DIRECTIVES} from '@angular/common';
 
-import './timepicker.scss';
 import 'material-timepicker/dist/css/timepicker.css';
 var TimePicker = require('material-timepicker');
 const timePicker = new TimePicker();
@@ -11,6 +10,7 @@ const timePicker = new TimePicker();
   directives: [CORE_DIRECTIVES],
   inputs: ['date', 'params', 'label', 'disabled'],
   outputs: ['dateChange'],
+  styles: [require('./timepicker.scss')],
   template: `
     <div class="input-field">
       <input [disabled]="disabled" [value]='date | date: "jjmm"' type='text' />

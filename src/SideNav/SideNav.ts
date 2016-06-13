@@ -4,6 +4,7 @@ import './SideNav.scss';
 
 @Component({
   selector: 'bd-side-nav',
+  styles: [require('./SideNav.scss')],
   template: `<div class="bd-side-nav">
             <ng-content></ng-content>
           </div>`,

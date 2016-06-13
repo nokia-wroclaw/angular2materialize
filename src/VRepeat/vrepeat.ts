@@ -8,8 +8,6 @@ import {BdItem} from './item';
 import {BdItemTemplate} from './item-template';
 export {BdItemTemplate};
 
-import './vrepeat.scss';
-
 const CONTAINER_HEIGHT = 300;
 const ITEM_HEIGHT = 50;
 const CONTAINER_CAPACITY = CONTAINER_HEIGHT / ITEM_HEIGHT;
@@ -19,20 +17,21 @@ const CONTAINER_CAPACITY = CONTAINER_HEIGHT / ITEM_HEIGHT;
   inputs: ['items', 'outerTemplate:template', 'selectedItem', 'scrollToSelection'],
   outputs: ['itemClicked'],
   directives: [CORE_DIRECTIVES, BdItem],
+  styles: [require('./vrepeat.scss')],
   template: `
-    <div 
-      #container 
+    <div
+      #container
       class="container"
       (scroll)="onScroll(container.scrollTop)"
       [scrollTop]="scrollTop">
-      <ul 
-        class="scroller" 
+      <ul
+        class="scroller"
         [style.height.px]="scrollerHeight - marginTop"
         [style.margin-top.px]="marginTop">
         <li
-          *ngFor="#item of visibleItems; #even=even" 
+          *ngFor="#item of visibleItems; #even=even"
           (click)="onClick(item)"
-          [item]="item" 
+          [item]="item"
           [template]="template"
           [ngClass]="{even: even, selected: item === selectedItem}">
         </li>

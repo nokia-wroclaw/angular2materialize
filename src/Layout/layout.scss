@@ -1,5 +1,4 @@
-
-bd-layout {
+:host {
   position: relative;
   width: calc(100% - 10px);
   overflow: hidden;
@@ -21,7 +20,5 @@ bd-layout {
     &[layout-align="stretch"] > * {
       width: calc(100% - 10px);
     }
-
   }
-
 }

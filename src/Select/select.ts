@@ -9,7 +9,6 @@ import {BdVRepeat, BdItemTemplate} from '../VRepeat/vrepeat';
 import {BdOptionTemplate} from './option-template';
 export {BdOptionTemplate};
 
-import './select.scss';
 
 const DEFAULT_ITEM_TEXT_FUNCTION = new Function('$item', 'return $item;');
 
@@ -18,6 +17,7 @@ const DEFAULT_ITEM_TEXT_FUNCTION = new Function('$item', 'return $item;');
   inputs: ['value', 'options', 'itemText', 'placeholder'],
   outputs: ['valueChange', 'blur'],
   directives: [CORE_DIRECTIVES, BdVRepeat, BdItemTemplate, FocusOnShow],
+  styles: [require('./select.scss')],
   template: `
     <div *ngIf="isVisible" class="select__mainContainer select-wrapper">
       <span class="caret">▼</span>
@@ -40,8 +40,8 @@ const DEFAULT_ITEM_TEXT_FUNCTION = new Function('$item', 'return $item;');
           [(ngModel)]="searchPhrase"
           (keydown)="keydown($event)"
           focusOnShow>
-          <bd-v-repeat 
-            [items]="visibleOptions" 
+          <bd-v-repeat
+            [items]="visibleOptions"
             (itemClicked)="optionClicked($event)"
             [selectedItem]="selectedOption"
             [scrollToSelection]="true"

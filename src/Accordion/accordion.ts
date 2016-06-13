@@ -1,12 +1,12 @@
 import {Component} from '@angular/core';
 import {CORE_DIRECTIVES} from '@angular/common';
-import './accordion.scss';
 
 import {BdAccordionGroup} from './accordionGroup';
 
 @Component({
   selector: BdAccordion.toString(),
   directives: [CORE_DIRECTIVES],
+  styles: [require('./accordion.scss')],
   template: `
     <ul class="collapsible" >
       <ng-content></ng-content>

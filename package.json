@@ -39,5 +39,8 @@
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0",
     "zone.js": "^0.6.12"
+  },
+  "devDependencies": {
+    "css-to-string-loader": "^0.1.1"
   }
 }

@@ -1,4 +1,4 @@
-bd-v-repeat {
+:host {
   .container {
     overflow-y: scroll;
     overflow-x: hidden;
@@ -10,7 +10,7 @@ bd-v-repeat {
       position: relative;
       margin: 0;
       height: 50px;
-      
+
       &.even {
         background-color: #eee;
       }
