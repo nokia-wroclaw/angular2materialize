@@ -3,4 +3,6 @@ node_modules
 npm-debug.log
 .idea
 *.iml
-/typings
+typings/**
+!typings/custom.d.ts
+
